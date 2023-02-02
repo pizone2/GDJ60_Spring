@@ -1,4 +1,4 @@
-package com.iu.si;
+package com.iu.si.army;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -31,7 +31,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		soldier.useGun();
+//		soldier.useGun();
 		System.out.println(soldier.getName());
 		System.out.println(soldier.getAge());
 		Soldier soldier = new Soldier();
