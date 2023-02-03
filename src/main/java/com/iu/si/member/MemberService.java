@@ -18,8 +18,16 @@ public class MemberService {
 		 this.memberDAO =  new MemberDAO();
 	 }
 	
-	 public void getMemberJoin()throws Exception {
+	 public int getMemberJoin()throws Exception {
 		 return memberDAO.getMemberJoin();
+	 }
+	 
+	 public void getMemberLogin()throws Exception {
+		 return memberDAO.getMemberLogin();
+	 }
+	 
+	 public void getMemberPage()throws Exception {
+		 return memberDAO.getMemberPage();
 	 }
 	 
 	

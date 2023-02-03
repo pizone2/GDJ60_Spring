@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 import org.springframework.stereotype.Repository;
 
 import com.iu.si.util.DBconnection;
@@ -11,15 +13,55 @@ import com.iu.si.util.DBconnection;
 @Repository
 public class MemberDAO {
 
-	public void getMemberJoin()throws Exception {
+	//getMemberJoin
+	public int getMemberJoin()throws Exception {
+		Connection con = DBconnection.getConnection();
+		
+		String sql = "";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		ResultSet rs = st.executeQuery();
+		
+		rs.next();
+		
+		int num = rs.getInt(1);
+		
+		DBconnection.disConnect(rs, con, st);
 		
 		
+		return num;
+	}
+	
+	//getMeberLogin
+	public int getMemberLogin(MemberDTO memberDTO)throws Exception {
+		Connection con = DBconnection.getConnection();
 		
-		return null;
+		String sql = "SELECT * FROM MEMBER WHERE ID = ? AND PW = ?";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		ResultSet rs = st.executeQuery();
+		st.setString(1,memberDTO.getId());
+		st.setString(2,memberDTO.getPw());
+		
+		if(rs.next()) {
+			//로그인성공
+		}else {
+			//로그인실패
+		}
+		
+		
+		DBconnection.disConnect(rs, con, st);
+		
+		
+		return num;
 	}
 	
 	
 	
+	
+
 	
 	
 	
