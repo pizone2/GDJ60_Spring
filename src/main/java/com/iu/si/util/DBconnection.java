@@ -10,16 +10,16 @@ public class DBconnection {
 	
 	//getConnection
 	public static Connection getConnection() throws Exception {
-		//1.  ?—°ê²? ? •ë³?
+		//1.  ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ï¿½?
 		String user = "user01";
 		String password = "user01";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		
-		//2. Driverë¥? ë©”ëª¨ë¦¬ì— ë¡œë”©
+		//2. Driverï¿½? ë©”ëª¨ë¦¬ì— ë¡œë”©
 		Class.forName(driver);
 		
-		//3. DB ?—°ê²?	
+		//3. DB ?ï¿½ï¿½ï¿½?	
 		return DriverManager.getConnection(url, user, password);
 				
 	
@@ -38,7 +38,7 @@ public class DBconnection {
 
 	
 	
-	//ë°°í¬? „ ?‚­? œ?•˜?„¸?š”
+	//ë°°í¬?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½
 	public static void main(String[] args) {
 		 try {
 			Connection con = DBconnection.getConnection();

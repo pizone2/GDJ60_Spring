@@ -22,7 +22,8 @@ public class ProductService {
 	public ProductService() {
 		this.productDAO = new ProductDAO();
 	}
-	//4.È£ÃâÇØ¼­ »ç¿ëÇØ¾ßÇÔ,setter,°áÇÕµµ ¾àÇÔ,ÁÖ¼Ò°ª¸¸ ÂüÁ¶ÇÏ±â ¶§¹®¿¡ productDAO¸¦ »èÁ¦ÇÏ¿©µµ DAO´Â »ì¾ÆÀÖÀ½.
+	
+	//4.È£ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½,setter,ï¿½ï¿½ï¿½Õµï¿½ ï¿½ï¿½ï¿½ï¿½,ï¿½Ö¼Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ productDAOï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ DAOï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	public void setProductDAO(ProductDAO productDAO) {
 		this.productDAO = productDAO;
 	}
@@ -31,7 +32,7 @@ public class ProductService {
 		return productDAO.getProductList()	;
 	}
 	
-	public ProductDTO getProductDetail(ProductDTO productDTO) throws Exception{
+	public static ProductDTO getProductDetail(ProductDTO productDTO) throws Exception{
 		return productDAO.getProductDetail(productDTO);
 //		return ProductDTO.this.getProductDetail();
 //		return ProductDTO.getProductDetail(productDTO);
@@ -47,52 +48,18 @@ public class ProductService {
 		productDTO.setProductNum(productNum);
 		int result = productDAO.setAddProduct(productDTO);
 		
-		for(ProductOptinDTO productOptionDTO:ar) {
-			productOptionDTO.setProductNum(productNum);
-			result = productDAO.setAddProductOption(null);
+		if(ar != null) {
+			
+			for(ProductOptinDTO productOptionDTO:ar) {
+				productOptionDTO.setProductNum(productNum);
+				result = productDAO.setAddProductOption(null);
+			}
 		}
 		return result;
 	}
 	
 
-	public static void main(String[] args) {
-		ProductDAO productDAO = new ProductDAO();
-		
-		ProductDTO productDTO = new ProductDTO();
-		productDTO.setProductName("product1");
-		productDTO.setProductDetail("detail1");
-		
-		ProductOptinDTO productOptinDTO = new ProductOptinDTO();
-		productOptinDTO.setOptionName("optionName1");
-		productOptinDTO.setOptionPrice(100L);
-		productOptinDTO.setOptionAmount(10L);
-		productOptinDTO.setProductNum(null);
-		
-		ProductOptinDTO productOptinDTO2 = new ProductOptinDTO();
-		productOptinDTO2.setOptionName("optionName2");
-		productOptinDTO2.setOptionPrice(200L);
-		productOptinDTO2.setOptionAmount(20L);
-		productOptinDTO2.setProductNum(null);
-		
-		try {
-			Long num = productDAO.getProductNum();
-			
-			productDTO.setProductNum(num);
-			
-			int result = productDAO.setAddProduct(productDTO);
-			
-			productOptinDTO.setProductNum(num);
-			
-			if(result>0) {
-				productDAO.setAddProductOption(productOptinDTO);
-			}
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
+	
 
 }
 	
