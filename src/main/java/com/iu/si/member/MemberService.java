@@ -22,12 +22,12 @@ public class MemberService {
 		 return memberDAO.getMemberJoin();
 	 }
 	 
-	 public void getMemberLogin()throws Exception {
-		 return memberDAO.getMemberLogin();
+	 public int getMemberLogin()throws Exception {
+		 return memberDAO.getMemberLogin(null);
 	 }
 	 
-	 public void getMemberPage()throws Exception {
-		 return memberDAO.getMemberPage();
+	 public int getMemberPage()throws Exception {
+		 return memberDAO.getMemberJoin();
 	 }
 	 
 	

@@ -46,11 +46,12 @@ public class MemberDAO {
 		st.setString(2,memberDTO.getPw());
 		
 		if(rs.next()) {
-			//·Î±×ÀÎ¼º°ø
+			//ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½
 		}else {
-			//·Î±×ÀÎ½ÇÆÐ
+			//ï¿½Î±ï¿½ï¿½Î½ï¿½ï¿½ï¿½
 		}
 		
+		int num = 1;
 		
 		DBconnection.disConnect(rs, con, st);
 		
