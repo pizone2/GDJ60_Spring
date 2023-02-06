@@ -37,7 +37,7 @@ public class ProductDAO {
 	public Long getProductNum()throws Exception{
 		Connection con = DBconnection.getConnection();
 		
-		String sql = "SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL";
+		String sql = "SELECT PRODUCTNUM_SEQ.NEXTVAL FROM DUAL";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		

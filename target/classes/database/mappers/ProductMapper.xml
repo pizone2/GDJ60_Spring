@@ -6,7 +6,7 @@
   <!--사용하려는 DAO의 풀패키지명  -->
   <mapper namespace="com.iu.si.product.ProductDAO">
   	<select id="getProductList" resultType="ProductDTO" statementType="PREPARED">
-  		SELECT PRODUCTNUM,PRODUCTNAME,PRODUCTJUMSU
+  		SELECT PRODUCTNUM,PRODUCTNAME,PRODUCTSCORE
   		FROM PRODUCT 
   		ORDER BY PRODUCTNUM DESC
   	</select>
@@ -18,7 +18,7 @@
   	</select>
   
   	<insert id="setAddProduct" parameterType="ProductDTO">
-  		INSERT INTO PRODUCT (PRODUCTNUM,PRODUCTNAME,PRODUCTDETAIL,PRODUCTJUMSU)
+  		INSERT INTO PRODUCT (PRODUCTNUM,PRODUCTNAME,PRODUCTDETAIL,PRODUCTSCORE)
   		VALUES (#{productNum},#{productName},#{productDetail},0.0)
   	</insert>
   	

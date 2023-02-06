@@ -4,10 +4,10 @@ public class MemberDTO {
 	
 	private String id;
 	private String pw;
-	private String membername;
-	private String memberphonenumber;
-	private String memberemail;
-	private String memberaddress;
+	private String memberName;
+	private String memberphone;
+	private String email;
+	
 	public String getId() {
 		return id;
 	}
@@ -20,30 +20,25 @@ public class MemberDTO {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
-	public String getMembername() {
-		return membername;
+	public String getMemberName() {
+		return memberName;
 	}
-	public void setMembername(String membername) {
-		this.membername = membername;
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
-	public String getMemberphonenumber() {
-		return memberphonenumber;
+	public String getMemberphone() {
+		return memberphone;
 	}
-	public void setMemberphonenumber(String memberphonenumber) {
-		this.memberphonenumber = memberphonenumber;
+	public void setMemberphone(String memberphone) {
+		this.memberphone = memberphone;
 	}
-	public String getMemberemail() {
-		return memberemail;
+	public String getEmail() {
+		return email;
 	}
-	public void setMemberemail(String memberemail) {
-		this.memberemail = memberemail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getMemberaddress() {
-		return memberaddress;
-	}
-	public void setMemberaddress(String memberaddress) {
-		this.memberaddress = memberaddress;
-	}
+	
 	
 	
 	

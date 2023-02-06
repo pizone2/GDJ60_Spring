@@ -4,7 +4,7 @@ public class ProductDTO {
 	private Long productNum;
 	private String productName;
 	private String productDetail;
-	private Double productJumsu;
+	private Double productScore;
 	
 	public Long getProductNum() {
 		return productNum;
@@ -24,17 +24,13 @@ public class ProductDTO {
 	public void setProductDetail(String productDetail) {
 		this.productDetail = productDetail;
 	}
-	public Double getProductJumsu() {
-		return productJumsu;
+	public Double getProductScore() {
+		return productScore;
 	}
-	public void setProductJumsu(Double productJumsu) {
-		this.productJumsu = productJumsu;
+	public void setProductScore(Double productScore) {
+		this.productScore = productScore;
 	}
-//	public ProductDTO getProductDetail(ProductDTO productDTO) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-	
+
 	
 
 }

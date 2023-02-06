@@ -21,7 +21,7 @@
 	
 	%>
 		<h3><%= productDTO.getProductName() %></h3>
-		<h3><%= productDTO.getProductJumsu() %></h3>
+		<h3><%= productDTO.getProductScore() %></h3>
 	<%} %>
 	
 	<hr>
@@ -40,7 +40,7 @@
 			현재 jsp영역에서만 사용하는것이 page  -->
 				<tr>
 					<td><a href = "./detail?productNum=${dto.productNum }">${pageScope.dto.productName}</a></td>
-					<td>${dto.productJumsu}</td>
+					<td>${dto.productScore}</td>
 				<tr>
 			</c:forEach>
 		</tbody>

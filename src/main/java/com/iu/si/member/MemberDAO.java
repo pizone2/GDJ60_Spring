@@ -6,31 +6,23 @@ import java.sql.ResultSet;
 
 import javax.naming.spi.DirStateFactory.Result;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.iu.si.util.DBconnection;
 
 @Repository
 public class MemberDAO {
+	
+	@Autowired
+	private SqlSession sqlSession;
+	private final String NAMESPACE="com.iu.si.member.MemberDAO.";
 
 	//getMemberJoin
-	public int getMemberJoin()throws Exception {
-		Connection con = DBconnection.getConnection();
+	public int getMemberJoin(MemberDTO memberDTO)throws Exception {
 		
-		String sql = "";
-		
-		PreparedStatement st = con.prepareStatement(sql);
-		
-		ResultSet rs = st.executeQuery();
-		
-		rs.next();
-		
-		int num = rs.getInt(1);
-		
-		DBconnection.disConnect(rs, con, st);
-		
-		
-		return num;
+		return ;
 	}
 	
 	//getMeberLogin
@@ -78,10 +70,10 @@ public class MemberDAO {
 		
 		st.setString(1,memberDTO.getId() );
 		st.setString(2,memberDTO.getPw() );
-		st.setString(3,memberDTO.getMembername() );
-		st.setString(4,memberDTO.getMemberphonenumber() );
-		st.setString(5,memberDTO.getMemberemail() );
-		st.setString(6,memberDTO.getMemberaddress() );
+		st.setString(3,memberDTO.getMemberName() );
+		st.setString(4,memberDTO.getMemberphone() );
+		st.setString(5,memberDTO.getEmail() );
+		st.setString(6,memberDTO.getMemberName() );
 		
 		int result = st.executeUpdate();
 		
@@ -96,10 +88,10 @@ public class MemberDAO {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id2");
 		memberDTO.setPw("pw2");
-		memberDTO.setMembername("name1");
-		memberDTO.setMemberphonenumber("010");
-		memberDTO.setMemberemail("asdf@asdf");
-		memberDTO.setMemberaddress("seoul");
+		memberDTO.setMemberName("name1");
+		memberDTO.setMemberphone("010");
+		memberDTO.setEmail("asdf@asdf");
+		memberDTO.setMemberName("seoul");
 		try {
 			int result = memberDAO.setAddMember(memberDTO);
 			System.out.println(result != 0);
