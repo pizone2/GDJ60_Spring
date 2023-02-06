@@ -28,7 +28,7 @@ public class ProductController {
 		//
 		//�𵨿� ��Ƽ� jsp�� ����
 		
-		List<ProductDTO> ar = ProductService.getProductList();
+		List<ProductDTO> ar = productService.getProductList();
 			
 		System.out.println(ar.size()>0);
 		mv.setViewName("product/productList");
@@ -44,7 +44,7 @@ public class ProductController {
 		
 		model.addAttribute("dto",productDTO);
 		
-		productDTO = ProductService.getProductDetail(productDTO);
+		productDTO = productService.getProductDetail(productDTO);
 		
 		System.out.println(productDTO != null);
 		
@@ -74,6 +74,7 @@ public class ProductController {
 		mv.setViewName("product/productUpdate")	;
 		return mv;
 		}
+	
 	
 	//
 	

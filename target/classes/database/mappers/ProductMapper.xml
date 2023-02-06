@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <!--사용하려는 DAO의 풀패키지명  -->
+  <mapper namespace="com.iu.si.product.ProductDAO">
+  	<select id="getProductList" resultType="com.iu.si.product.ProductDTO" statementType="PREPARED">
+  		SELECT PRODUCTNUM,PRODUCTNAME,PRODUCTJUMSU
+  		FROM PRODUCT 
+  		ORDER BY PRODUCTNUM DESC
+  	</select>
+  		
+  	<!--사용하려는 DAO의 이름과 동일하게  -->
+  	<select id="getProductDetail" parameterType="com.iu.si.product.ProductDTO" resultType="com.iu.si.product.ProductDTO">
+  		SELECT * FROM PRODUCT WHERE PRODUCTNUM = #{productNum}
+  	</select>
+  
+  	<insert id="setAddProduct" parameterType="com.iu.si.product.ProductDTO">
+  		INSERT INTO PRODUCT (PRODUCTNUM,PRODUCTNAME,PRODUCTDETAIL,PRODUCTJUMSU)
+  		VALUES (#{productNum},#{productName},#{productDetail},0.0)
+  	</insert>
+  
+  </mapper>
