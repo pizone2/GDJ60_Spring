@@ -5,20 +5,25 @@
 
   <!--사용하려는 DAO의 풀패키지명  -->
   <mapper namespace="com.iu.si.product.ProductDAO">
-  	<select id="getProductList" resultType="com.iu.si.product.ProductDTO" statementType="PREPARED">
+  	<select id="getProductList" resultType="ProductDTO" statementType="PREPARED">
   		SELECT PRODUCTNUM,PRODUCTNAME,PRODUCTJUMSU
   		FROM PRODUCT 
   		ORDER BY PRODUCTNUM DESC
   	</select>
   		
   	<!--사용하려는 DAO의 이름과 동일하게  -->
-  	<select id="getProductDetail" parameterType="com.iu.si.product.ProductDTO" resultType="com.iu.si.product.ProductDTO">
+  	<!--없는거 미리 만들면 오류 -->
+  	<select id="getProductDetail" parameterType="ProductDTO" resultType="ProductDTO">
   		SELECT * FROM PRODUCT WHERE PRODUCTNUM = #{productNum}
   	</select>
   
-  	<insert id="setAddProduct" parameterType="com.iu.si.product.ProductDTO">
+  	<insert id="setAddProduct" parameterType="ProductDTO">
   		INSERT INTO PRODUCT (PRODUCTNUM,PRODUCTNAME,PRODUCTDETAIL,PRODUCTJUMSU)
   		VALUES (#{productNum},#{productName},#{productDetail},0.0)
   	</insert>
-  
+  	
+  	<delete id="setProductDeledt" parameterType="Long"> 
+  		DELETE PRODUCT WHERE PRODUCTNUM=#{productNum}
+  	</delete>
+	  
   </mapper>
