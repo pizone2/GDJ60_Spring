@@ -5,7 +5,7 @@ public class MemberDTO {
 	private String id;
 	private String pw;
 	private String memberName;
-	private String memberphone;
+	private String memberPhone;
 	private String email;
 	
 	public String getId() {
@@ -27,10 +27,10 @@ public class MemberDTO {
 		this.memberName = memberName;
 	}
 	public String getMemberphone() {
-		return memberphone;
+		return memberPhone;
 	}
 	public void setMemberphone(String memberphone) {
-		this.memberphone = memberphone;
+		this.memberPhone = memberphone;
 	}
 	public String getEmail() {
 		return email;

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@Controller  //객체생성, Controller 역할
 @RequestMapping("/product/*")
 public class ProductController {
 	@Autowired
@@ -23,10 +23,6 @@ public class ProductController {
 	
 	@RequestMapping(value = "list")
 	public ModelAndView getProductList(ModelAndView mv)throws Exception {
-//		ModelAndView mv = new ModelAndView();
-		//�𵨸� �Ű������� ����//��&�� ���¹��
-		//
-		//�𵨿� ��Ƽ� jsp�� ����
 		
 		List<ProductDTO> ar = productService.getProductList();
 			
@@ -36,10 +32,9 @@ public class ProductController {
 		return mv;
 	}
 	
-	
 	@RequestMapping(value = "detail")
 	public String getProductDetail (ProductDTO productDTO, Model model) throws Exception{
-		//�Ķ������ �̸��� setter�� �̸��� ���ƾ� �� 
+		
 		System.out.println("Product Detail");
 		
 		model.addAttribute("dto",productDTO);
@@ -52,17 +47,16 @@ public class ProductController {
 		return "product/productDetail";
 	}
 	
-	
 	//productAdd  //get
 	@RequestMapping(value = "productAdd", method = RequestMethod.GET)
-	public void getProductAdd() {
+	public void setProductAdd() {
 	}
 	
 	//post
 	@RequestMapping(value = "productAdd", method = RequestMethod.POST)
-	public String productAdd(ProductDTO productDTO)throws Exception {
+	public String setProductAdd(ProductDTO productDTO)throws Exception {
 //		ProductService productService;
-		int result = productService.setAddProduct(productDTO,null);
+		int result = productService.setProductAdd(productDTO,null);
 		System.out.println(result == 1);
 		return "redirect:./list";
 	}
@@ -74,12 +68,6 @@ public class ProductController {
 		mv.setViewName("product/productUpdate")	;
 		return mv;
 		}
-	
-	
-	//
-	
-	
-	
 	
 	
 	

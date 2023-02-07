@@ -15,30 +15,20 @@ public class ProductService {
 	@Autowired
 	private ProductDAO productDAO;
 
-//	@Autowired
-//	private ProductDAO productDAO;
-
-
-	
+	//getProductLIst
 	public List<ProductDTO> getProductList()throws Exception{
 		return productDAO.getProductList()	;
 	}
-	
+	//getProductDetail
 	public ProductDTO getProductDetail(ProductDTO productDTO) throws Exception{
 		return productDAO.getProductDetail(productDTO);
-//		return ProductDTO.this.getProductDetail();
-//		return ProductDTO.getProductDetail(productDTO);
-//		return ProductDTO.this.getProductDetail(productDTO);
 	}
-	
-	
-	
-	
-	public int setAddProduct(ProductDTO productDTO,List<ProductOptinDTO> ar)throws Exception{
+	//setAddProduct
+	public int setProductAdd(ProductDTO productDTO,List<ProductOptinDTO> ar)throws Exception{
 		//product , option
 		Long productNum = productDAO.getProductNum();
 		productDTO.setProductNum(productNum);
-		int result = productDAO.setAddProduct(productDTO);
+		int result = productDAO.setProductAdd(productDTO);
 		
 		if(ar != null) {
 			

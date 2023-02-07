@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.iu.si.bankBook.BankBookDAO">
+  
+  	<select id="getbankBookNum" resultType="Long">
+  		SELECT BANKBOOKNUM_SEQ.NEXTVAL FROM DUAL
+  	</select>	
+  	<!--List -->
+  	<select id="getBankBookList" parameterType="BankBookDTO">
+  		SELECT BOOKNUMBER,BOOKNAME,BOOKRATE,BOOKSALE,BOOKDETAIL
+		FROM BANKBOOK
+  	</select>
+  	<!--Add -->
+  	<insert id="setBankBookAdd" parameterType="BankBookDTO">
+  		INSERT INTO BANKBOOK (BOOKNUMBER,BOOKNAME,BOOKRATE,BOOKSALE,BOOKDETAIL)
+		VALUES (#{bookNumber},#{bookName},#{bookRate},#{bookSale},#{bookDetail})
+  	</insert>
+  	<!--  -->
+  
+  </mapper>

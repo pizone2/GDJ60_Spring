@@ -3,15 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
   
+  
+  <!-- configuration = 구성 -->
   <configuration>
   	<typeAliases>
   		<typeAlias type="com.iu.si.product.ProductDTO" alias="ProductDTO"/>
   		<!--미리만들면 오류 ,없는 클래스 만들지않기 -->
-  	
   		<typeAlias type="java.lang.Long" alias="Long"/>
-  		
-  		
-  		
+  		<!-- 별명주기 -->
+  		<typeAlias type="com.iu.si.member.MemberDTO" alias="MemberDTO"/>
+  		<typeAlias type="com.iu.si.bankBook.BankBook" alias="BankBook"/>
   		
   	</typeAliases>
   

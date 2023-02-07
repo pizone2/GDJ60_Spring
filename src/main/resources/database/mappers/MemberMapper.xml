@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+ <!-- 사용하려는 DAO의 풀패키지명 -->
+ <mapper namespace="com.iu.si.member.MemberDAO">
+ 
+ <!--id는 사용하려는 DAO의 매소드명과 동일하게 작성하여야함 -->
+ <!-- insert,delete,update 는 리턴값이 없어서 resultType을 쓰지앖음 -->
+ <insert id="setMemberJoin" parameterType="MemberDTO">
+ 	 INSERT INTO MEMBER (ID,PW,MEMBERNAME,MEMBERPHONE,EMAIL)
+ 	 VALUES (#{id}, #{pw}, #{memberName}, #{memberPhone}, #{email} )
+ <!-- paramete처리 = #{getter의 이름}-->
+ </insert>
+ </mapper>

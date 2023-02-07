@@ -9,26 +9,15 @@ import com.iu.si.product.ProductService;
 public class MemberService {
 	
 	 @Autowired
-	 private MemberService memberService;
-	
-	 @Autowired
 	 private MemberDAO memberDAO;
 	 
-	 public MemberService() {
-		 this.memberDAO =  new MemberDAO();
+	 //setMemberJoin
+	 
+	 public int setMemberJoin(MemberDTO memberDTO)throws Exception{
+		 return memberDAO.setMemberJoin(memberDTO);
 	 }
+	 
 	
-	 public int getMemberJoin()throws Exception {
-		 return memberDAO.getMemberJoin();
-	 }
-	 
-	 public int getMemberLogin()throws Exception {
-		 return memberDAO.getMemberLogin(null);
-	 }
-	 
-	 public int getMemberPage()throws Exception {
-		 return memberDAO.getMemberJoin();
-	 }
 	 
 	
 	
