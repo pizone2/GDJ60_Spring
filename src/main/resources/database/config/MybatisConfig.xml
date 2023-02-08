@@ -12,7 +12,7 @@
   		<typeAlias type="java.lang.Long" alias="Long"/>
   		<!-- 별명주기 -->
   		<typeAlias type="com.iu.si.member.MemberDTO" alias="MemberDTO"/>
-  		<typeAlias type="com.iu.si.bankBook.BankBook" alias="BankBook"/>
+  		<typeAlias type="com.iu.si.bankbook.BankBookDTO" alias="BankBookDTO"/>
   		
   	</typeAliases>
   

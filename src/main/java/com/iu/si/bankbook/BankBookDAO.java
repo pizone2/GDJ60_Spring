@@ -1,4 +1,4 @@
-package com.iu.si.bankbook;
+package com.iu.si.bankBook;
 
 import java.util.List;
 
@@ -10,23 +10,31 @@ import org.springframework.stereotype.Repository;
 public class BankBookDAO {
 	
 		@Autowired
-		private SqlSession sqlsession;
-		private final String NAMESPACE="com.iu.si.bankbook.BankBookDAO";
+		private SqlSession sqlSession;
+		private final String NAMESPACE="com.iu.si.bankbook.BankBookDAO.";
 		
 		//getBankBookList
 		public List<BankBookDTO> getBankBookList()throws Exception {
-			return sqlsession.selectList(NAMESPACE+"getBankBookList");
+			return sqlSession.selectList(NAMESPACE+"getBankBookList");
 		}
-		//setBankBookDetail
-		public int setBankBookDetail(BankBookDTO bankBookDTO)throws Exception {
-			return sqlsession.delete(NAMESPACE+"setBankBookDetail", bankBookDTO);
-		}
+		//getBankBookDetail
+//		public BankBookDTO getBankBookDetail(BankBookDTO bankBookDTO)throws Exception {
+//			return sqlSession.selectOne(NAMESPACE+"getBankBookDetail", bankBookDTO);
+//		}
+		
+		 public BankBookDTO getBankBookDetail(BankBookDTO bankBookDTO) throws Exception {
+			 return sqlSession.selectOne(NAMESPACE+"getBankBookDetail", bankBookDTO);
+		 }
 		//setBankBookAdd
 		public int setBankBookAdd(BankBookDTO bankBookDTO)throws Exception{
-			return sqlsession.insert(NAMESPACE+"setBankBookAdd",bankBookDTO );
+			return sqlSession.insert(NAMESPACE+"setBankBookAdd",bankBookDTO );
 		}
 		//setBankBookUpdate
 		public int setBankBookUpdate(BankBookDTO bankBookDTO)throws Exception{
-			return sqlsession.update(NAMESPACE+"setBankBookUpdate", bankBookDTO);
+			return sqlSession.update(NAMESPACE+"setBankBookUpdate", bankBookDTO);
+		}
+		//setBankBookDelete
+		public int setBankBookDelete(BankBookDTO bankBookDTO) throws Exception{
+			return sqlSession.delete(NAMESPACE+"setBankBookDelete",bankBookDTO);
 		}
 }

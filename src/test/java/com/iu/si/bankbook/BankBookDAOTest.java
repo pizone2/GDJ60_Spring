@@ -1,4 +1,4 @@
-package com.iu.si.bankbook;
+package com.iu.si.bankBook;
 
 import static org.junit.Assert.*;
 
@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.iu.si.MyTestCase;
+import com.iu.si.bankBook.BankBookDAO;
+import com.iu.si.bankBook.BankBookDTO;
 
 
 
@@ -21,6 +23,16 @@ public class BankBookDAOTest extends MyTestCase {
 		List<BankBookDTO> ar = bankBookDAO.getBankBookList();
 		assertNotEquals(0, ar.size());
 	}
+	
+	
+	@Test
+	public void getBankBookDetailTest() throws Exception{
+		BankBookDTO bankBookDTO = new BankBookDTO();
+		bankBookDTO.setBookNumber(15L);
+		bankBookDTO = bankBookDAO.getBankBookDetail(bankBookDTO);
+		assertNotNull(bankBookDTO);
+	}
+	
 	
 	@Test
 	public void setBankBookAddTest()throws Exception{

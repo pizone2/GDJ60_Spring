@@ -27,7 +27,7 @@ public class ProductDAOTest extends MyTestCase{
 		ProductDTO productDTO = new ProductDTO();
 		productDTO.setProductNum(1L);
 		productDTO = productDAO.getProductDetail(productDTO);
-		assertNotNull(productDTO);
+		assertNotNull(productDTO); //Null이 아니길 희망한다.
 	}
 	
 	//insert 임의의 번호	
@@ -38,7 +38,7 @@ public class ProductDAOTest extends MyTestCase{
 		productDTO.setProductDetail("Test");
 		productDTO.setProductName("TestDetail");
 		int result = productDAO.setProductAdd(productDTO);
-		assertEquals(1, result);
+		assertEquals(1, result); //result값이 true이길 희망한다.
 	}
 	
 	
