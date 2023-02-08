@@ -12,15 +12,15 @@
 	<div class="col-6">
 		<form action="./add" method="post">
 			상품명
-			<intput type="text" name="bookName" placeholder="제품명 입력">
+			<input type="text" name="bookName" placeholder="제품명 입력">
 			이자율
-			<intput type="text" name="bookRate">
+			<input type="text" name="bookRate">
 			상품정보
-			<intput type="text" name="bookDetail">
+			<textarea rows="" cols=""  name="bookDetail"></textarea> 
 			할인율
-			<intput type="text" name="bookSale">
+			<input type="text" name="bookSale">
 			전송버튼
-			<intput type="submit" value="등록" >
+			<!-- <input type="submit" value="등록" > -->
 			<button type ="submit">등록</button>
 		
 		</form>
