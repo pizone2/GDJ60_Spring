@@ -1,4 +1,4 @@
-package com.iu.si.bankBook;
+package com.iu.si.bankbook;
 
 import static org.junit.Assert.*;
 
@@ -8,8 +8,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.iu.si.MyTestCase;
-import com.iu.si.bankBook.BankBookDAO;
-import com.iu.si.bankBook.BankBookDTO;
+import com.iu.si.bankbook.BankBookDAO;
+import com.iu.si.bankbook.BankBookDTO;
 
 
 
