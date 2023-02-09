@@ -10,7 +10,16 @@
 <body>
 	<h1>BankBook ListPage</h1>
 	
-	<table border="1"> 
+	
+	
+	<!--상대경로로 이미지 넣기 -->
+	<div class="image">
+		<img "크리스" src="../../resources/images/bum.jpg">
+	</div>
+	<link rel="stylesheet" href="/resources/css/table.css">
+	
+	
+	<table class="bbc" border="1"> 
 	   <thead>
 	      <tr>
 	       <th>상품명</th>
@@ -23,7 +32,7 @@
 	   <c:forEach items="${list}" var="dto">
 		   <tr>
 		      <td><a href="./detail?bookNumber=${dto.bookNumber}">${pageScope.dto.bookName}</a></td>
-		      <td>${dto.bookRate}</td>
+		      <td><a>${pageScope.dto.bookRate}</a></td>
 		      <td>
 			      <c:choose>
 				      <c:when test="${dto.bookSale eq 1}"> 판매중</c:when>
@@ -38,8 +47,7 @@
 	</table>
 	
 		<a href="./add">상품등록</a>
-		<a href="./update">상품수정</a>
-</body>
+		</body>
 </html>
 
 

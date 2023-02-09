@@ -29,10 +29,11 @@
       VALUES (BANKNUM_SEQ.NEXTVAL,#{bookName},#{bookRate},#{bookSale},#{bookDetail})
      </insert>
      
-     <update id="setBankBooUpdate" parameterType="BankBookDTO">
-     
+     <update id="setBankBookUpdate" parameterType="BankBookDTO"> <!--Config 떄문에 BankBookDTO사용가능 -->
+     	UPDATE BANKBOOK SET BOOKNAME=#{bookName},BOOKRATE=#{bookRate}, BOOKDETAIL=#{bookDetail}, BOOKSALE=#{bookSale}
+		WHERE BOOKNUMBER=#{bookNumber}     
      </update>
-       
+       <!--Mapper은 DAO가 호출  -->
     </mapper>
 
 

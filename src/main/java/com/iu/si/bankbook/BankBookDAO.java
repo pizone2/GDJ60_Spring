@@ -37,4 +37,5 @@ public class BankBookDAO {
 		public int setBankBookDelete(BankBookDTO bankBookDTO) throws Exception{
 			return sqlSession.delete(NAMESPACE+"setBankBookDelete",bankBookDTO);
 		}
+		
 }
