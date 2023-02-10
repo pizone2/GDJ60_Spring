@@ -1,9 +1,65 @@
-.bbc {
-    width: 70%px;
-    margin-left: auto;
-    margin-right: auto;
+.tb1{
+    width: 70%;
+    margin: 0 auto;
+    border: 1px solid black  ;
+    border-spacing: 0px;
+    border-collapse: separate;
+}
+.tb1 > thead > tr{
+    background-color: black;
+    color: white;
 }
 
-.img{
-    margin:0px auto;
+.tb1> tbody td > a {
+    text-decoration: none;
+    color: black;
+
+}
+
+
+.tb1 th, .tb1 td{
+    border: 1px solid black  ;
+    height:  50;
+}
+
+.title{
+
+    margin: 0 auto;
+}
+
+.tb1_td{
+    width: 15%;
+    text-align: center;
+   
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.tb12{
+    width: 70%;
+    margin: 0 auto;
+    border-spacing: 0;
+    border-collapse: collapse ;
+}
+
+.tb12 > thead > tr{
+    background-color: black;
+    color: white;
+    border-color: white;
+    
+}
+.tb12 > tbody > tr > td{
+    border-bottom-color: black;
+}
+
+
+.tb12 > tbody td > a {
+    text-decoration: none;
+
+    color: black;
+    border-bottom-color: black;
+}
+
+.tb12 th, .tb12 td{
+    border-right:3px solid white ;
+
 }

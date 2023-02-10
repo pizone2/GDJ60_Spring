@@ -34,7 +34,7 @@ public class BankBookController {
 		bankBookDTO = bankBookService.getBankDetail(bankBookDTO);	
 		
 		mv.setViewName("bankBook/detail");
-		mv.addObject("detail", bankBookDTO);
+		mv.addObject("dto", bankBookDTO);
 		return mv;
 	}
 	//add(GET),form 이동

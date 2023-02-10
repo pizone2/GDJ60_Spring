@@ -1,0 +1,42 @@
+.c1{
+    width: 100px;
+    height: 100px;
+
+}
+
+.p1{
+    background-color: red;
+    position: static;
+}
+.p2{
+    background-color: blue;
+    position: absolute; 
+    top: 50px;
+    right: 0px;
+}
+.p3{
+    background-color: yellow;
+    position: fixed;
+    top: 200px;
+    left: 300px;
+    z-index: 778;
+}
+.p4{
+    width: 300px;
+    background-color: black;
+    height: 200px;
+    position: relative;
+    z-index: 777;
+    top: 200px;
+    left: 50px;
+}
+
+.p5{
+    background-color: pink;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.p6{
+    background-color: gray;
+}

@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="/resources/css/table.css">
 	
 	
-	<table class="bbc" border="1"> 
+	<table class="tb12"> 
 	   <thead>
 	      <tr>
 	       <th>상품명</th>
@@ -32,8 +32,8 @@
 	   <c:forEach items="${list}" var="dto">
 		   <tr>
 		      <td><a href="./detail?bookNumber=${dto.bookNumber}">${pageScope.dto.bookName}</a></td>
-		      <td><a>${pageScope.dto.bookRate}</a></td>
-		      <td>
+		      <td class="tb1_td"><a>${pageScope.dto.bookRate}</a></td>
+		      <td class="tb1_td">
 			      <c:choose>
 				      <c:when test="${dto.bookSale eq 1}"> 판매중</c:when>
 				      <c:otherwise>판매중단</c:otherwise>
