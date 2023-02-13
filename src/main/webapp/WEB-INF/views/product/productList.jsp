@@ -10,6 +10,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+<c:import url="../template/common_css.jsp"></c:import>
+<c:import url="../template/header.jsp"></c:import>
 </head>
 
 <body>
@@ -19,15 +21,7 @@
 	
 	<div class="title">
 	<h1>product list page 입니당</h1>
-    <%
-        List<ProductDTO> ar = (List<ProductDTO>)request.getAttribute("list"); 
-		for(ProductDTO productDTO : ar){		
-	%>	
-	<h3><%= productDTO.getProductName()%></h3>
-	<h3><%= productDTO.getProductScore()%></h3>
-	<%}%>  
-	
-	<hr>
+   
 	</div>
 	
 	<table class="title" >

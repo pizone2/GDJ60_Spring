@@ -6,8 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet" href="/resources/css/table.css">
+
+<c:import url="../template/common_css.jsp"></c:import>
+<c:import url="../template/header.jsp"></c:import>
 </head>
 <body>
+	
 	<h1>BankBook ListPage</h1>
 	
 	
@@ -16,7 +22,7 @@
 	<div class="image">
 		<img "크리스" src="../../resources/images/bum.jpg">
 	</div>
-	<link rel="stylesheet" href="/resources/css/table.css">
+	
 	
 	
 	<table class="tb12"> 
