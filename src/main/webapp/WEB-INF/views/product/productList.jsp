@@ -33,13 +33,34 @@
 			 </tr>
 		</thead>
 		<tbody>
+			
 				<c:forEach items="${list}" var="dto"> <!-- dto는 page 영역에 담긴다 -->
+				<div class="list-group">
 				<tr>
-				<td><h3> <a href="./detail?productNum=${dto.productNum}">${pageScope.dto.productNum}</a></h3></td>
+				<td><h3> <a href="./detail?productNum=${dto.productNum">${pageScope.dto.productNum}</a></h3></td>
 				<td><h3>${ pageScope.dto.productName}</h3></td>
 				<td><h3>${ dto.productScore}</h3></td>
 				</tr>
+				</div>
 				</c:forEach>
+		
+				
+				
+				<div class="list-group">
+				<c:forEach items="${list}" var="dto">
+				  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+				    The current link item
+				  </a>
+				  <a href="#" class="list-group-item list-group-item-action">A second link </a>
+				  
+				  
+				  <a class="list-group-item list-group-item-action disabled">A disabled link item</a>
+				</c:forEach>
+				</div>
+				
+				
+				
+				
 		</tbody>
 	</table>
 	<a href="./productAdd">상품등록</a>

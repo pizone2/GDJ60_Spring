@@ -25,9 +25,15 @@ public class BankBookDTO {
 		this.bookRate = bookRate;
 	}
 	public Long getBookSale() {
+		if(this.bookSale == null || this.bookSale !=1) {
+			this.bookSale=0L;
+		}
 		return bookSale;
 	}
 	public void setBookSale(Long bookSale) {
+		if(bookSale == null || bookSale !=1) {
+			this.bookSale = 0L ;
+		}
 		this.bookSale = bookSale;
 	}
 	public String getBookDetail() {
