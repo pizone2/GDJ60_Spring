@@ -14,4 +14,10 @@
  	 VALUES (#{id}, #{pw}, #{memberName}, #{memberPhone}, #{email} )
  <!-- paramete처리 = #{getter의 이름}-->
  </insert>
+ 
+ <insert id="" parameterType="MemberDTO">
+ 	INSERT INTO MEMBER_ROLE (ID, ROLENUM)
+ 	VALUES (#{id},(SELECT ROLENUM FROM ROLE WHERE ROLENAME='MEMBER')))
+ </insert>
+ 
  </mapper>
