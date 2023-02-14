@@ -33,16 +33,17 @@
 			 </tr>
 		</thead>
 		<tbody>
-			
-				<c:forEach items="${list}" var="dto"> <!-- dto는 page 영역에 담긴다 -->
 				<div class="list-group">
+				<c:forEach items="${list}" var="dto"> <!-- dto는 page 영역에 담긴다 -->
+			
 				<tr>
-				<td><h3> <a href="./detail?productNum=${dto.productNum">${pageScope.dto.productNum}</a></h3></td>
+				<td><h3> <a href="./detail?productNum=${dto.productNum}">${pageScope.dto.productNum}</a></h3></td>
 				<td><h3>${ pageScope.dto.productName}</h3></td>
 				<td><h3>${ dto.productScore}</h3></td>
 				</tr>
-				</div>
+			
 				</c:forEach>
+				</div>
 		
 				
 				

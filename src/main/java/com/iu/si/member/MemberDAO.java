@@ -20,10 +20,25 @@ public class MemberDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.iu.si.member.MemberDAO.";
 
-	//setMemberJoin
+	//set
 	public int setMemberJoin(MemberDTO memberDTO)throws Exception {
 	
 		return sqlSession.insert(NAMESPACE+"setMemberJoin",memberDTO );
+	}
+	
+	public int setMemberRoleAdd(MemberDTO memberDTO)throws Exception {
+		return sqlSession.insert(NAMESPACE+"setMemberRoleAdd",memberDTO);
+	}
+	public int setMemberUpdate(MemberDTO memberDTO)throws Exception{
+		return sqlSession.update(NAMESPACE+"setMemberUpdate", memberDTO);
+	}
+	//get
+	public MemberDTO getMemberLogin(MemberDTO memberDTO)throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getMemberLogin", memberDTO);
+	}
+	
+	public MemberDTO getMemberPage(MemberDTO memberDTO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getMemberPage", memberDTO);
 	}
 	
 	

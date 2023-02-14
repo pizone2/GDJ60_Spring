@@ -10,14 +10,26 @@
  <!--id는 사용하려는 DAO의 매소드명과 동일하게 작성하여야함 -->
  <!-- insert,delete,update 는 리턴값이 없어서 resultType을 쓰지앖음 -->
  <insert id="setMemberJoin" parameterType="MemberDTO">
- 	 INSERT INTO MEMBER (ID,PW,MEMBERNAME,MEMBERPHONE,EMAIL)
+ 	 INSERT INTO MEMBER 
  	 VALUES (#{id}, #{pw}, #{memberName}, #{memberPhone}, #{email} )
  <!-- paramete처리 = #{getter의 이름}-->
  </insert>
  
- <insert id="" parameterType="MemberDTO">
+ <insert id="setMemberRoleAdd" parameterType="MemberDTO">
  	INSERT INTO MEMBER_ROLE (ID, ROLENUM)
- 	VALUES (#{id},(SELECT ROLENUM FROM ROLE WHERE ROLENAME='MEMBER')))
+ 	VALUES (#{id},(SELECT ROLENUM FROM ROLE WHERE ROLENAME='MEMBER'))
  </insert>
  
+ <select id="getMemberLogin" parameterType="MemberDTO" resultType="MemberDTO" >
+ 	SELECT ID FROM MEMBER 
+ 	WHERE ID=#{id} AND PW=#{pw}
+ </select>
+ 
+ <update id="setMemberUpdate" parameterType="MemberDTO">
+		Update MEMBER SET MEMBERNAME=#{memberName},MEMBERPHONE=#{memberPhone},EMAIL=#{email}
+		WHERE ID=#{id}
+	</update> 
+ 
+ 
+
  </mapper>
