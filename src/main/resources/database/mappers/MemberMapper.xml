@@ -20,9 +20,9 @@
  	VALUES (#{id},(SELECT ROLENUM FROM ROLE WHERE ROLENAME='MEMBER'))
  </insert>
  
- <select id="getMemberLogin" parameterType="MemberDTO" resultType="MemberDTO" >
- 	SELECT ID FROM MEMBER 
- 	WHERE ID=#{id} AND PW=#{pw}
+ <select id="getMemberLogin" parameterType="MesmberDTO" resultType="MemberDTO" >
+ 	SELECT * FROM MEMBER 
+ 	WHERE ID=#{id} 
  </select>
  
  <update id="setMemberUpdate" parameterType="MemberDTO">
