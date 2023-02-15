@@ -25,44 +25,31 @@
    
 	</div>
 	
-	<table class="title" >
+	<table class="title table-hover" >
 	
 		<thead>
 			 <tr>
-			  	<th>상품명</th><th>상품평점</th>
+			  	<th>상품명</th>
+			  	<th>상품평점</th>
 			 </tr>
 		</thead>
-		<tbody>
-				<div class="list-group">
-				<c:forEach items="${list}" var="dto"> <!-- dto는 page 영역에 담긴다 -->
+		<tbody class="table-group-divider">
+				
+			<c:forEach items="${list}" var="dto"> <!-- dto는 page 영역에 담긴다 -->
 			
 				<tr>
-				<td><h3> <a href="./detail?productNum=${dto.productNum}">${pageScope.dto.productNum}</a></h3></td>
-				<td><h3>${ pageScope.dto.productName}</h3></td>
-				<td><h3>${ dto.productScore}</h3></td>
+					<td><h3> <a href="./detail?productNum=${dto.productNum}">${pageScope.dto.productNum}</a></h3></td>
+					<td class="tb1_td"><h3>${ pageScope.dto.productName}</h3></td>
+					<td class="tb1_td"><h3>${ dto.productScore}</h3></td>
 				</tr>
 			
-				</c:forEach>
-				</div>
+			</c:forEach>
+			
 		
 				
 				
-				<div class="list-group">
-				<c:forEach items="${list}" var="dto">
-				  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-				    The current link item
-				  </a>
-				  <a href="#" class="list-group-item list-group-item-action">A second link </a>
-				  
-				  
-				  <a class="list-group-item list-group-item-action disabled">A disabled link item</a>
-				</c:forEach>
-				</div>
 				
-				
-				
-				
-		</tbody>
+		</tbody>s
 	</table>
 	<a href="./productAdd">상품등록</a>
 	 

@@ -3,6 +3,7 @@ package com.iu.si.bankbook;
 import static org.junit.Assert.*;
 
 import java.util.List;
+import java.util.Random;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,14 +37,21 @@ public class BankBookDAOTest extends MyTestCase {
 	
 	@Test
 	public void setBankBookAddTest()throws Exception{
+		
+		for(int i=0;i<30;i++) {
+		Random r = new Random();
+		double d = r.nextDouble();
+		int num =(int) d*1000; //123
+		d = num/100.0;
 		BankBookDTO bankBookDTO = new BankBookDTO();
 		bankBookDTO.setBookNumber(43L);
-		bankBookDTO.setBookName("test");
+		bankBookDTO.setBookName("서서적금"+i);
 		bankBookDTO.setBookDetail("test");
-		bankBookDTO.setBookRate(0);
-		bankBookDTO.setBookSale(0L);
+		bankBookDTO.setBookRate(d);
+		bankBookDTO.setBookSale(1L);
 		int result = bankBookDAO.setBankBookAdd(bankBookDTO);
-		assertEquals(1, result);
+		
+		}
 	}
 	
 	

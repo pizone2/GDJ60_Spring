@@ -20,13 +20,13 @@
 				
 				
 				<div class="mb-3">
-					<label for="name" class="form-label fw-bold">이름</label> 
-					<input type="text" name="memberName" class="form-control" id="name" value="${dto.memberName}">
+					<label for="memberName" class="form-label fw-bold">이름</label> 
+					<input type="text" name="memberName" class="form-control" id="memberName" value="${dto.memberName}">
 				</div>
 			
 				<div class="mb-3">
-					<label for="phone" class="form-label fw-bold">전화번호</label> 
-					<input type="tel" name="memberPhone" class="form-control" id="phone" value="${dto.memberPhone}">
+					<label for="memberPhone" class="form-label fw-bold">전화번호</label> 
+					<input type="tel" name="memberPhone" class="form-control" id="memberPhone" value="${dto.memberPhone}">
 				</div>
 				
 				<div class="mb-3">

@@ -7,11 +7,21 @@
     <select id="getBookNumber" resultType="Long">
      SELECT BANKNUM_SEQ.NEXTVAL FROM DUAL
    </select>
+   
+   <select id="getBankBookCount" resultType="Long">
+   	 SELECT COUNT(BOOKNUMBER) FROM BANKBOOK
+   </select>
      
-    <select id ="getBankBookList" resultType="BankBookDTO" statementType="PREPARED"> 
-     SELECT *
-     FROM BANKBOOK
-     ORDER BY BOOKNUMBER DESC
+    <select id ="getBankBookList" parameterType="Pager" resultType="BankBookDTO" statementType="PREPARED"> 
+    SELECT * FROM 
+		(
+			SELECT ROWNUM R,B.* FROM 
+				(
+					SELECT * FROM  BANKBOOK
+					ORDER BY BOOKNUMBER DESC
+				) B
+		)
+	WHERE  R BETWEEN  #{startRow} AND #{lastRow}
     </select>
     
     <select id="getBankBookDetail" parameterType="BankBookDTO" resultType="BankBookDTO">

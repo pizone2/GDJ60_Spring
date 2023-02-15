@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.si.util.Pager;
+
 @Controller
 @RequestMapping("/bankBook/*") //하위폴더가 더 있다면 **
 public class BankBookController {
@@ -19,12 +21,16 @@ public class BankBookController {
 	
 	//list							  //요청을 특정 메서드와 매핑하기 위해 사용하는것이다.
 	@RequestMapping(value = "list", method = RequestMethod.GET)   //value은 요청받을 url을 설정
-	public ModelAndView getBankBookList()throws Exception{
+	public ModelAndView getBankBookList(Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		List<BankBookDTO> ar = bankBookService.getBankBookList();
+		
+		List<BankBookDTO> ar = bankBookService.getBankBookList(pager);
+		
+		
 		
 		mv.setViewName("bankBook/list"); //prefix,suffix 생각
 		mv.addObject("list", ar); //이름 마음대로
+		mv.addObject("pager", pager);
 		return mv;
 	}
 	//detail
