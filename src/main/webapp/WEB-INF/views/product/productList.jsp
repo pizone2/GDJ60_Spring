@@ -43,9 +43,30 @@
 		
 		   </tbody>
 		</table>
-	
-			
-		
+		<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@페이지버튼@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  -->
+	<div class="row">
+			<nav aria-label="Page navigation example">
+				  <ul class="pagination" >
+				    <li class="page-item" ${pager.before?'disabled':''}>
+				      <a class="page-link" href="./list?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+				    </li>
+				    
+				    <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+				    	<li class="page-item"><a class="page-link" href="./productList?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
+				    </c:forEach>
+				    
+				    
+				    <li class="page-item" ${pager.after eq false ? 'disabled' : '' }>
+				      <a class="page-link"  href="./productList?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}"  aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+				    </li>
+				  </ul>
+				</nav>
+	</div>		
+	<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 검색창 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@  -->
 	
 	</div>
 	<div class="row col-md-7 mx-auto">

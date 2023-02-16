@@ -37,6 +37,11 @@
 				  <textarea class="form-control" id="FormControlbookDetail" placeholder="상세정보 입력" rows="3"></textarea>
 				</div>
 				
+				<div class="mb-3">
+				  <label for="files" class="form-label">Image</label>
+				  <input type="file" class="form-control" id="files" name="pic">
+				</div>
+				
 				<fieldset>
 					<legend class="fs-6">판매여부</legend>
 					<select class="form-select"  name="bookSale">

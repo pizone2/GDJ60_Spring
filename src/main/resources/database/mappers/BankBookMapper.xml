@@ -3,6 +3,31 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
     <mapper namespace="com.iu.si.bankbook.BankBookDAO">
+    <sql id="searchCondition">
+    	<if test="kind == 'contents'">
+   	 	 WHERE BOOKDETAIL   LIKE  '%' || #{search} || '%'
+   	 </if>
+   	 
+   	 <if test="kind == 'title'">
+   	 	WHERE BOOKNAME  LIKE  '%' || #{search} || '%'
+   	 </if>
+    </sql>
+    
+    <sql id="searchCondition2">
+ 			WHERE 
+					
+			<choose>
+				<when test="kind == 'contents' ">
+					BOOKDETAIL
+				</when>
+				<otherwise>
+					BOOKNAME
+				</otherwise>
+			</choose>
+					
+			 LIKE  '%' || #{search} || '%' 
+    </sql>
+    
      
     <select id="getBookNumber" resultType="Long">
      SELECT BANKNUM_SEQ.NEXTVAL FROM DUAL
@@ -10,17 +35,7 @@
    
    <select id="getBankBookCount" parameterType="pager" resultType="Long">
    	 SELECT COUNT(BOOKNUMBER) FROM BANKBOOK
-   	
-   	 
-   	 <if test="kind == 'contents'">
-   	 	 WHERE BOOKDETAIL   LIKE  '%' || #{search} || '%'
-   	 </if>
-   	 
-   	 <if test="kind == 'title'">
-   	 	WHERE BOOKNAME  LIKE  '%' || #{search} || '%'
-   	 </if>
-   	 
-   	
+   	<include refid="searchCondition"></include>
    	 
    </select>
      
@@ -30,19 +45,9 @@
 			SELECT ROWNUM R,B.* FROM 
 				(
 					SELECT * FROM  BANKBOOK
+					<include refid="searchCondition"></include>
 					
-					WHERE 
 					
-					<choose>
-						<when test="kind == 'contents' ">
-							BOOKDETAIL
-						</when>
-						<otherwise>
-							BOOKNAME
-						</otherwise>
-					</choose>
-					
-					 LIKE  '%' || #{search} || '%'
 					
 					ORDER BY BOOKNUMBER DESC
 				) B
