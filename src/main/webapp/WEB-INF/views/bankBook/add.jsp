@@ -18,7 +18,7 @@
 		</div>
 	
 		
-			<form action="./add" method="post">
+			<form action="./add" method="post" enctype="multipart/form-data">
 			<div class="row col-md-7 mx-auto">
 				
 				

@@ -29,9 +29,9 @@
     </sql>
     
      
-    <select id="getBookNumber" resultType="Long">
+   <!--  <select id="getBookNumber" resultType="Long">
      SELECT BANKNUM_SEQ.NEXTVAL FROM DUAL
-   </select>
+   </select> -->
    
    <select id="getBankBookCount" parameterType="pager" resultType="Long">
    	 SELECT COUNT(BOOKNUMBER) FROM BANKBOOK
@@ -66,14 +66,27 @@
      </delete>
    
      <insert id="setBankBookAdd" parameterType="BankBookDTO" > 
-      INSERT INTO BANKBOOK
-      VALUES (BANKNUM_SEQ.NEXTVAL,#{bookName},#{bookRate},#{bookSale},#{bookDetail})
+	     <selectKey keyProperty="bookNumber" resultType="Long" order="BEFORE">
+	     	SELECT BANKNUM_SEQ.NEXTVAL FROM DUAL
+	     </selectKey>
+	      INSERT INTO BANKBOOK
+	      VALUES (#{bookNumber},#{bookName},#{bookRate},#{bookSale},#{bookDetail})
      </insert>
      
      <update id="setBankBookUpdate" parameterType="BankBookDTO"> <!--Config 떄문에 BankBookDTO사용가능 -->
      	UPDATE BANKBOOK SET BOOKNAME=#{bookName},BOOKRATE=#{bookRate}, BOOKDETAIL=#{bookDetail}, BOOKSALE=#{bookSale}
 		WHERE BOOKNUMBER=#{bookNumber}     
      </update>
+     
+     <insert id="setBankBookImgAdd" parameterType="BankBookImgDTO">
+     	INSERT INTO BANKBOOKIMG
+     	VALUES (BANKNUM_SEQ.NEXTVAL, #{fileName},#{oriName},#{bookNumber})
+     </insert>
+     
+     
+     
+     
+     
        <!--Mapper은 DAO가 호출  -->
     </mapper>
 
