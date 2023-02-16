@@ -40,6 +40,10 @@
 	</div>
 </div>
 
+<div>
+	<h1>${member.memberName}</h1>
+</div>
+
 
 
 

@@ -5,14 +5,23 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.iu.si.util.Pager;
+
 @Service
 public class BankBookService {
 
 	@Autowired
 	private BankBookDAO bankBookDAO;
 	
-	public List<BankBookDTO> getBankBookList()throws Exception {
-		return bankBookDAO.getBankBookList();
+	public List<BankBookDTO> getBankBookList(Pager pager)throws Exception {
+
+		pager.makeRow();
+		Long totalCount = bankBookDAO.getBankBookCount(pager);//30 3
+		
+		pager.makeNum(totalCount);
+		
+		
+		return bankBookDAO.getBankBookList(pager);
 	}
 	public BankBookDTO getBankDetail(BankBookDTO bankBookDTO)throws Exception{
 		return bankBookDAO.getBankBookDetail(bankBookDTO);

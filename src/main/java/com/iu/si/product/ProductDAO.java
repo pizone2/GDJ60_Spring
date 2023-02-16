@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.iu.si.util.DBconnection;
+import com.iu.si.util.Pager;
 
 import oracle.jdbc.driver.DBConversion;
 
@@ -26,6 +27,15 @@ public class ProductDAO {
 	//Mapper의 이름과 동일하게
 	private final String NAMESPACE="com.iu.si.product.ProductDAO.";
 	
+	public Long getProductCount(Pager pager)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getProductCount", pager);
+	}
+	
+	
+	//getProductList
+		public List<ProductDTO> getProductList(Pager pager)throws Exception{
+			return sqlSession.selectList(NAMESPACE+"getProductList",pager);
+		}
 	//delete
 	public int setProductDelete(Long productNum)throws Exception {
 		
@@ -36,19 +46,13 @@ public class ProductDAO {
 		
 		return sqlSession.selectOne(NAMESPACE+"getProductDetail", productDTO);
 	}
-	//getProductList
-	public List<ProductDTO> getProductList()throws Exception{
-		
-		return sqlSession.selectList(NAMESPACE+"getProductList");
-	}
+	
 	//setAddProduct
 	public int setProductAdd(ProductDTO productDTO)throws Exception{
 
 		return sqlSession.insert(NAMESPACE+"setAddProduct", productDTO);
 		
 	}
-	
-	
 	//getMax
 	public Long getProductNum()throws Exception{
 		

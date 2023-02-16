@@ -9,18 +9,19 @@ public class MemberDTO {
 	private String memberName;
 	private String memberPhone;
 	private String email;
-	private List<RoleDTO> roleDTOs;
+	private RoleDTO roleDTOs;
 	
 	
 	
-	public void setMemberPhone(String memberPhone) {
-		this.memberPhone = memberPhone;
-	}
-	public List<RoleDTO> getRoleDTOs() {
+
+	public RoleDTO getRoleDTOs() {
 		return roleDTOs;
 	}
-	public void setRoleDTOs(List<RoleDTO> roleDTOs) {
+	public void setRoleDTOs(RoleDTO roleDTOs) {
 		this.roleDTOs = roleDTOs;
+	}
+	public void setMemberPhone(String memberPhone) {
+		this.memberPhone = memberPhone;
 	}
 	public String getMemberPhone() {
 		return memberPhone;

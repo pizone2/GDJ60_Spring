@@ -10,35 +10,36 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-	
-<div class="container -fluid my-5  ">		
+
+<div class="container -fluid my-5  ">		 
 	<h1 class="text-center">Member Join</h1>
 	<div class="col-6 my-4  mx-auto">
 		<form action="./memberJoin" method="post">
+		
 		<!--id  -->
 		 <div class="form-outline mb-4">
-          <input type="text" id="ID" class="form-control">
+          <input type="text" id="id" class="form-control" name="id">
           <label class="form-label" for="form1Example1" style="margin-left: 0px;">ID</label>
         <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 88px;"></div><div class="form-notch-trailing"></div></div></div>
 		<!--pw  -->
 		 <div class="form-outline mb-4">
-          <input type="text" id="PW" class="form-control">
+          <input type="text" id="pw" class="form-control" name="pw">
           <label class="form-label" for="form1Example1" style="margin-left: 0px;">PW</label>
         <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 88px;"></div><div class="form-notch-trailing"></div></div></div>
 		<!--MemberName-->
 	    <div class="form-outline mb-4">
-          <input type="text" id="Name" class="form-control">
+          <input type="text" id="memberName" class="form-control" name="memberName">
           <label class="form-label" for="form1Example1" style="margin-left: 0px;">Name</label>
         <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 88px;"></div><div class="form-notch-trailing"></div></div></div>
         <!-- MemberPhone input -->
         <div class="form-outline mb-4">
-          <input type="text" id="Phone Number" class="form-control">
+          <input type="text" id="memberPhone" class="form-control" name="memberPhone">
           <label class="form-label" for="form1Example1" style="margin-left: 0px;">Phone Number</label>
         <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 88px;"></div><div class="form-notch-trailing"></div></div></div>
 
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="text" id="Email" class="form-control">
+          <input type="text" id="email" class="form-control" name="email">
           <label class="form-label" for="form1Example2" style="margin-left: 0px;">Email</label>
         <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 61.6px;"></div><div class="form-notch-trailing"></div></div></div>
 
@@ -59,13 +60,14 @@
         </div>
 
         <!-- Submit button -->
-        <button type="button" class="btn btn-primary btn-block">Sign in</button>
+        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
 		
 	
 		</form>
 	</div>
 	
 </div>	
+<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>
 

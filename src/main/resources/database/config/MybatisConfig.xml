@@ -14,6 +14,8 @@
   		<typeAlias type="com.iu.si.member.MemberDTO" alias="MemberDTO"/>
   		<typeAlias type="com.iu.si.bankbook.BankBookDTO" alias="BankBookDTO"/>
   		<typeAlias type="com.iu.si.member.RoleDTO" alias="RoleDTO"/>
+  		<typeAlias type="com.iu.si.util.Pager" alias="Pager"/>
+  		
   	</typeAliases>
   
   
