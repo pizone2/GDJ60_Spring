@@ -53,12 +53,12 @@
     </select>
     
     <select id="getBankBookDetail" parameterType="BankBookDTO" resultMap="bankBookDetailResult">
-   	SELECT B.*,BI.*
-	FROM BANKBOOK B 
-		INNER JOIN 
-		BANKBOOKIMG BI
-		ON (B.BOOKNUMBER = BI.BOOKNUMBER)
-	WHERE B.BOOKNUMBER = #{bookNumber};
+		SELECT B.*,BI.* 
+		FROM BANKBOOK B
+			LEFT OUTER JOIN 
+			BANKBOOKIMG BI
+			ON (B.BOOKNUMBER  = BI.BOOKNUMBER)
+		WHERE B.BOOKNUMBER = #{bookNumber}
     </select>
     
     <resultMap type="BankBookDTO" id="bankBookDetailResult">
@@ -71,7 +71,7 @@
     	<result column="BOOKSALE" property="bookSale"/>
     	<!-- 1:1  -->
     	<association property="bankBookImgDTO" javaType="BankBookImgDTO">
-    		<id column="FILENUM" property="filenum"/>
+    		<id column="FILENUM" property="fileNum"/>
     		<result column="FILENAME" property="fileName"/>
     		<result column="ORINAME" property="oriName"/>
     	</association>

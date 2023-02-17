@@ -16,6 +16,7 @@
 		<h3>Rate : ${dto.bookRate }</h3>
 		<h3>Sale : ${dto.bookSale }</h3>
 		<div>
+			<c:if test="${not empty dto.bankBookImgDTO}"></c:if>
 			<img src="../resources/upload/bankBook/${dto.bankBookImgDTO.fileName}">
 		</div>
 		
