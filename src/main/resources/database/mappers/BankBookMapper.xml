@@ -45,21 +45,39 @@
 			SELECT ROWNUM R,B.* FROM 
 				(
 					SELECT * FROM  BANKBOOK
-					<include refid="searchCondition"></include>
-					
-					
-					
+					<include refid="searchCondition2"></include>
 					ORDER BY BOOKNUMBER DESC
 				) B
 		)
 	WHERE  R BETWEEN  #{startRow} AND #{lastRow}
     </select>
     
-    <select id="getBankBookDetail" parameterType="BankBookDTO" resultType="BankBookDTO">
-    SELECT *    
-    FROM BANKBOOK
-    WHERE BOOKNUMBER = #{bookNumber}
+    <select id="getBankBookDetail" parameterType="BankBookDTO" resultMap="bankBookDetailResult">
+   	SELECT B.*,BI.*
+	FROM BANKBOOK B 
+		INNER JOIN 
+		BANKBOOKIMG BI
+		ON (B.BOOKNUMBER = BI.BOOKNUMBER)
+	WHERE B.BOOKNUMBER = #{bookNumber};
     </select>
+    
+    <resultMap type="BankBookDTO" id="bankBookDetailResult">
+    	<!--Primary key-->
+    	<id column="BOOKNUMBER" property="bookNumber" />
+    	<!--그외 나머지  -->
+    	<result column="BOOKNAME" property="bookName"/>
+    	<result column="BOOKDETAIL" property="bookDetail"/>
+    	<result column="BOOKRATE" property="bookRate"/>
+    	<result column="BOOKSALE" property="bookSale"/>
+    	<!-- 1:1  -->
+    	<association property="bankBookImgDTO" javaType="BankBookImgDTO">
+    		<id column="FILENUM" property="filenum"/>
+    		<result column="FILENAME" property="fileName"/>
+    		<result column="ORINAME" property="oriName"/>
+    	</association>
+    	<!-- 1:N -->
+    	<!-- <collection property=""></collection> -->
+    </resultMap>
        
      <delete id="setBankBookDelete" parameterType="Long">
      DELETE BANKBOOK WHERE BOOKNUMBER = #{bookNumber}
@@ -89,46 +107,3 @@
      
        <!--Mapper은 DAO가 호출  -->
     </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  <mapper namespace="com.iu.si.bankBook.BankBookDAO">
-  
-  	<select id="getBankBookNumber" resultType="Long">
-  		SELECT BANKNUM_SEQ.NEXTVAL FROM DUAL
-  	</select>	
-  	List
-  	<select id="getBankBookList" resultType="BankBookDTO">
-  		SELECT BOOKNUMBER,BOOKNAME,BOOKRATE,BOOKSALE,BOOKDETAIL
-		FROM BANKBOOK
-  	</select>
-  	Add
-  	<insert id="setBankBookAdd" parameterType="BankBookDTO">
-  		INSERT INTO BANKBOOK (BOOKNUMBER,BOOKNAME,BOOKRATE,BOOKSALE,BOOKDETAIL)
-		VALUES (#{bookNumber},#{bookName},#{bookRate},#{bookSale},#{bookDetail})
-  	</insert>
-  	
-  
-  </mapper> -->
