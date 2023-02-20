@@ -18,7 +18,7 @@
 		<ul class="navbar-nav">
 			<c:if test="${empty member}">
 			<li class="nav-item"><a class="nav-link" href="/member/memberLogin">LOGIN</a></li>
-			<li class="nav-item"><a class="nav-link" href="/member/memberJoin">JOIN</a></li>
+			<li class="nav-item"><a class="nav-link" href="/member/memberAgree">Agree</a></li>
 			</c:if>
 			<c:if test="${not empty member}">
 			<li class="nav-item"><a class="nav-link" href="/member/memberPage">MYPAGE</a></li>
