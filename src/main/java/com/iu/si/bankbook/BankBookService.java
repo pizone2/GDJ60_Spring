@@ -18,7 +18,7 @@ public class BankBookService {
 	@Autowired
 	private BankBookDAO bankBookDAO;
 	//testcase 테스트시 Null이 들어옴 ,API 추가해야함
-	@Autowired
+	@Autowired //테스트시 주석으로 막고 테스팅할것
 	private ServletContext servletContext;
 	@Autowired
 	private FileManager fileManager;

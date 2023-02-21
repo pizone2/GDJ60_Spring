@@ -13,5 +13,6 @@
 		<!-- 전체 Upload하는 파일의 총합 제한 단위 byte  -->
 		<property name="maxUploadSize" value="31457280"></property>
 	</bean>	
-		
+	
+	<!-- <bean class="org.springframework.mock.web.MockServletContext" id="servletContext" ></bean>	-->
 </beans>

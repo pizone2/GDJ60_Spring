@@ -7,7 +7,7 @@ const in1 = document.getElementById("in1");
 //배열
 const options = document.getElementsByClassName("options");
 const names  = document.getElementsByClassName("names");
-const ch = document.getElementsByName("ch");
+const ch = document.getElementsByClassName("ch");
 
 for(let i=0;i<ch.length;i++){
     ch[i].addEventListener("click",function(){
