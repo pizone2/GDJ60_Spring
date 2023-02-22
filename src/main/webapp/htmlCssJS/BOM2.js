@@ -10,7 +10,7 @@ const names  = document.getElementsByClassName("names");
 const ch = document.getElementsByClassName("ch");
 
 for(let i=0;i<ch.length;i++){
-    ch[i].addEventListener("click",function(){
+    ch[i].addEventListener("click",function(){ss
         console.log(this.checked);
         for(let j=0;j<ch.length;j++){
             ch[j].checked=this.checked;
