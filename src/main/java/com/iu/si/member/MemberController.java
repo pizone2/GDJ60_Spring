@@ -16,6 +16,10 @@ public class MemberController {
 	//특정 uri로 요청을 보내면 Controller에서 어떠한 방식으로 처리할지 정의를 하는데,
 	//이떄 들어온 요청을 특정 메서드와 매핑하기 위해 사용하는것이 @RequestMapping임.
 	
+	@RequestMapping(value = "memberAgree", method = RequestMethod.GET)
+	public void setMemberAgree()throws Exception{
+	}
+	
 	@Autowired
 	private MemberService memberService;
 	@RequestMapping(value = "memberJoin", method = RequestMethod.GET)

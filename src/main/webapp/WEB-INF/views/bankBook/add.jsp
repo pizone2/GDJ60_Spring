@@ -37,9 +37,12 @@
 				  <textarea class="form-control" id="FormControlbookDetail" placeholder="상세정보 입력" rows="3"></textarea>
 				</div>
 				
-				<div class="mb-3">
-				  <label for="files" class="form-label">Image</label>
-				  <input type="file" class="form-control" id="files" name="pic">
+				<div id="fileList">
+					<!-- <div class="mb-3">
+					<label for="files" class="form-label">Image</label>
+					<input type="file" class="form-control" id="files" name="pic">
+					</div> -->
+					<button id="add" type="button">ADD</button>
 				</div>
 				
 				<fieldset>
@@ -64,6 +67,11 @@
 		
 		</form>
 </div>		
+<script src="../resources/js/fileManager.js"></script>
+<script>
+	setMax(3);
+	// setParam('pic');
+</script>
 <c:import url="../template/common_css.jsp"></c:import>
 </body>
 </html>
