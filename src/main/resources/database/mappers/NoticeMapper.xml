@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <!--사용하려는 DAO의 풀패키지명  -->
+  <mapper namespace="com.iu.si.board.notice.NoticeDAO">
+  	<sql id="noticeCondition">
+  		<trim prefix="where" suffixOverrides="and" >
+    		<if test="kind == 'title' ">
+    			TITLE LIKE '%' ||#{search}|| '%'
+    		</if>
+    		
+    		<if test="kind == 'contents' ">
+    			CONTENTS LIKE '%' ||#{search}|| '%'
+    		</if>
+    		
+    		<if test="kind == 'writer'">
+    			WRITER LIKE '%' ||#{search}|| '%'
+    		</if>
+    	</trim>
+   	</sql>
+   	
+ 	<select id="getTotalCount" resultType="Long" parameterType="Pager">
+  		SELECT COUNT(NUM) FROM NOTICE
+  			<include refid="noticeCondition"></include>  	  
+  	</select>  
+  	
+  	<select id="getBoardList" resultType="NoticeDTO" parameterType="Pager">
+  	 	SELECT * FROM
+  		(
+	  		SELECT ROWNUM R, C.* FROM 
+		  		(	
+		  			SELECT NUM,WRITER,TITLE,REGDATE,HIT FROM NOTICE
+		  			<include refid="noticeCondition"></include>
+		  			ORDER BY NUM DESC
+		  		)C
+  		)
+  		WHERE R BETWEEN #{startRow} AND #{lastRow}
+  	</select>
+	  	
+  </mapper>
