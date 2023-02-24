@@ -31,12 +31,42 @@
   		(
 	  		SELECT ROWNUM R, C.* FROM 
 		  		(	
-		  			SELECT NUM,WRITER,TITLE,REGDATE,HIT FROM QNA
+		  			SELECT NUM,WRITER,TITLE,REGDATE,HIT,DEPTH FROM QNA
 		  			<include refid="qnaCondition"></include>
-		  			ORDER BY NUM DESC
+		  			ORDER BY REF DESC,STEP ASC
 		  		)C
   		)
   		WHERE R BETWEEN #{startRow} AND #{lastRow}
   	</select>
+  	
+  	<select id="getBoardDetail" parameterType="BoardDTO" resultType="QnaDTO">
+  		SELECT * FROM QNA WHERE NUM=#{num}
+  	</select>
+  	
+  	
+  	
+  	<insert id="setBoardAdd" parameterType="BbsDTO">
+  		<selectKey keyProperty="num" resultType="Long" order="BEFORE">
+  			SELECT QNA_SEQ.NEXTVAL FROM DUAL
+  		</selectKey>
+  	 	INSERT INTO QNA (NUM,TITLE,CONTENTS,WRITER,REGDATE,HIT,REF,STEP,DEPTH)
+  	 	VALUES (#{num}, #{title},#{contents},#{writer},SYSDATE,0,#{num},0,0)
+  	</insert>
+  	
+  	<update id="setStepUpdate" parameterType="QnaDTO">
+  		UPDATE QNA SET STEP = STEP + 1
+  		WHERE REF = #{ref} AND STEP > #{step}
+  	</update>
+  	
+  	<insert id="setReplyAdd" parameterType="QnaDTO">
+  		INSERT INTO QNA (NUM,TITLE,CONTENTS,WRITER,REGDATE,HIT,REF,STEP,DEPTH)
+  	 	VALUES (QNA_SEQ.NEXTVAL, #{title},#{contents},#{writer},SYSDATE,0,#{ref},#{step},#{depth})
+  	</insert>
+  	
+  	
+  	
+  	
+  	
+  	
 	  	
   </mapper>

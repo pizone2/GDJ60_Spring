@@ -16,6 +16,7 @@ public class NoticeDAOTest extends MyTestCase {
 	@Autowired
 	private NoticeDAO noticeDAO;
 
+	//List
 	@Test
 	public void getNoticeListTest() throws Exception{
 		Pager pager = new Pager();
@@ -23,8 +24,16 @@ public class NoticeDAOTest extends MyTestCase {
 		
 		List<BbsDTO> ar = noticeDAO.getBoardList(pager);
 		assertNotEquals(0, ar.size());
-		
+	}
 	
+	//Add
+	public void setBoardAddTest()throws Exception {
+		NoticeDTO noticeDTO = new NoticeDTO();
+		noticeDTO.setTitle("Title1");
+		noticeDTO.setWriter("Wrinter");
+		noticeDTO.setContents("Contents");
+		int result = noticeDAO.setBoardAdd(noticeDTO);
+		assertNotEquals(1, result);
 	}
 	
 	
