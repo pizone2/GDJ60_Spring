@@ -7,7 +7,7 @@ public class BbsDTO {
 	private Long num;
 	private String contents;
 	private String writer;
-	private Date regDate; //sqpdate
+	private Date regDate; 
 	
 	
 	public Long getNum() {

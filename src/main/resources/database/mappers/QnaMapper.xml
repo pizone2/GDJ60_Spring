@@ -23,7 +23,7 @@
    	
  	<select id="getTotalCount" resultType="Long" parameterType="Pager">
   		SELECT COUNT(NUM) FROM QNA
-  			<include refid="qnaCondition"></include>  	  
+  		<include refid="qnaCondition"></include>  	  
   	</select>  
   	
   	<select id="getBoardList" resultType="QnaDTO" parameterType="Pager">
@@ -39,9 +39,30 @@
   		WHERE R BETWEEN #{startRow} AND #{lastRow}
   	</select>
   	
-  	<select id="getBoardDetail" parameterType="BoardDTO" resultType="QnaDTO">
-  		SELECT * FROM QNA WHERE NUM=#{num}
+  	<select id="getBoardDetail" parameterType="BoardDTO" resultMap="getBoardDetailResult">
+  		SELECT Q.*,QF.* 
+  		FROM QNA Q
+			LEFT JOIN
+			QNAFILES QF 
+			ON (Q.NUM= QF.NUM) 
+		WHERE Q.NUM=#{num}
   	</select>
+  	
+  	<resultMap type="QnaDTO" id="getBoardDetailResult">
+  		<id column="num" property="num"/>
+  		<result column="title" property="title"/>
+  		<result column="writer" property="writer"/>
+  		<result column="contents" property="contents"/>
+  		<result column="regDate" property="regDate"/>
+  		<result column="hit" property="hit"/>
+  		<result column="depth" property="depth"/>
+  		<collection property="boardFileDTOs" javaType="List" ofType="BoardFileDTO">
+  			<id column="fileNum" property="fileNum"/>
+  			<result column="fileName" property="fileName"/>
+  			<result column="oriName" property="oriName"/>
+  		</collection>
+  		<!--ofType은 List의 타입(DTO)  -->
+  	</resultMap>
   	
   	
   	
@@ -53,6 +74,13 @@
   	 	VALUES (#{num}, #{title},#{contents},#{writer},SYSDATE,0,#{num},0,0)
   	</insert>
   	
+  	
+  	<insert id="setBoardFileAdd" parameterType="BoardFileDTO">
+  		INSERT INTO QNAFILES (FILENUM,NUM,FILENAME,ORINAME)
+  		VALUES(QNA_SEQ.NEXTVAL,#{num},#{fileName},#{oriName})
+  	</insert>
+  	
+  	
   	<update id="setStepUpdate" parameterType="QnaDTO">
   		UPDATE QNA SET STEP = STEP + 1
   		WHERE REF = #{ref} AND STEP > #{step}
@@ -62,6 +90,14 @@
   		INSERT INTO QNA (NUM,TITLE,CONTENTS,WRITER,REGDATE,HIT,REF,STEP,DEPTH)
   	 	VALUES (QNA_SEQ.NEXTVAL, #{title},#{contents},#{writer},SYSDATE,0,#{ref},#{step},#{depth})
   	</insert>
+  	
+  	<delete id="setBoardDelete" parameterType="BbsDTO">
+  		DELETE QNA WHERE NUM=#{num}
+  	</delete>
+  	
+  	<select id="getBoardFileList" parameterType="BbsDTO" resultType="BoardFileDTO">
+  		SELECT * FROM QNAFILES WHERE NUM=#{num}
+  	</select>
   	
   	
   	

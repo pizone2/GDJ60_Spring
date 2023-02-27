@@ -2,6 +2,8 @@ package com.iu.si.board.qna;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.si.board.BbsDTO;
@@ -51,11 +54,12 @@ public class QnaController {
 	
 	//add
 	@PostMapping("add")
-	public ModelAndView setBoardAdd(QnaDTO qnaDTO)throws Exception{
+	public ModelAndView setBoardAdd(QnaDTO qnaDTO,MultipartFile[] files,HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = qnaService.setBoardAdd(qnaDTO);
+		int result = qnaService.setBoardAdd(qnaDTO,files,session);
 		
 		String message= "등록실패";
+		
 		if(result>0) {
 			message = "글이 등록 되었습니다.";
 		}
@@ -100,6 +104,21 @@ public class QnaController {
 		mv.setViewName("common/result");
 		mv.addObject("result", message);
 		mv.addObject("url", "./detail?num="+qnaDTO.getNum());
+		return mv;
+	}
+	@PostMapping("delete")
+	public ModelAndView setBoardDelete(BbsDTO bbsDTO,HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("common/result");
+		
+		int result =  qnaService.setBoardDelete(bbsDTO,session);
+		
+		String message="삭제 실패";
+		if(result>0) {
+			message = "삭제 성공";
+		}
+		mv.addObject("result", message);
+		mv.addObject("url", "./list");
 		return mv;
 	}
 	

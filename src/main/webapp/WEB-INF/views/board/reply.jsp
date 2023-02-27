@@ -39,6 +39,14 @@
 			    
 				
 				
+		 		<div id="fileList">
+					<!-- <div id="divs" class="mb-3">
+					<label for="files" class="form-label">Image</label>
+					<input type="file" class="form-control" id="files" name="files">
+					<button id="btnDel" type="button" >X</button>
+					</div>  -->
+					<button id="add" type="button">ADD</button>
+				</div>
 		<!-- 		<div id="fileList">
 					<div class="mb-3">
 					<label for="files" class="form-label">Image</label>
@@ -71,8 +79,8 @@
 </div>		
 <script src="../resources/js/fileManager.js"></script>
 <script>
-	setMax(3);
-	// setParam('pic');
+	setMax(5);
+	setParam('pic');
 </script>
 <c:import url="../template/common_css.jsp"></c:import>
 </body>

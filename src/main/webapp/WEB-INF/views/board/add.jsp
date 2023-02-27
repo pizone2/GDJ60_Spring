@@ -18,7 +18,7 @@
 		</div>
 	
 		
-			<form action="./add" method="post" >
+			<form action="./add" method="post" enctype="multipart/form-data" >
 			<div class="row col-md-7 mx-auto">
 				
 			    <div class="mb-3">
@@ -65,7 +65,7 @@
 <script src="../resources/js/fileManager.js"></script>
 <script>
 	setMax(5);
-	// setParam('pic');
+	setParam('files');
 </script>
 <c:import url="../template/common_css.jsp"></c:import>
 </body>

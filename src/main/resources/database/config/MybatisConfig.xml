@@ -15,10 +15,13 @@
   		<typeAlias type="com.iu.si.bankbook.BankBookDTO" alias="BankBookDTO"/>
   		<typeAlias type="com.iu.si.bankbook.BankBookImgDTO" alias="BankBookImgDTO"/>
   		<typeAlias type="com.iu.si.bankbook.BankBookCommentDTO" alias="BankBookCommentDTO"/>
+  		
   		<typeAlias type="com.iu.si.board.BbsDTO" alias="BbsDTO"/>
   		<typeAlias type="com.iu.si.board.BoardDTO" alias="BoardDTO"/>
+  		<typeAlias type="com.iu.si.board.BoardFileDTO" alias="BoardFileDTO"/>
   		<typeAlias type="com.iu.si.board.notice.NoticeDTO" alias="NoticeDTO"/>
   		<typeAlias type="com.iu.si.board.qna.QnaDTO" alias="QnaDTO"/>
+  		
   		<typeAlias type="com.iu.si.member.RoleDTO" alias="RoleDTO"/>
   		<typeAlias type="com.iu.si.util.Pager" alias="Pager"/>
   		
