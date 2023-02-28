@@ -9,16 +9,16 @@ public class MemberDTO {
 	private String memberName;
 	private String memberPhone;
 	private String email;
-	private RoleDTO roleDTOs;
+	private RoleDTO roleDTO;
 	
 	
 	
 
 	public RoleDTO getRoleDTOs() {
-		return roleDTOs;
+		return roleDTO;
 	}
-	public void setRoleDTOs(RoleDTO roleDTOs) {
-		this.roleDTOs = roleDTOs;
+	public void setRoleDTOs(RoleDTO roleDTO) {
+		this.roleDTO = roleDTO;
 	}
 	public void setMemberPhone(String memberPhone) {
 		this.memberPhone = memberPhone;

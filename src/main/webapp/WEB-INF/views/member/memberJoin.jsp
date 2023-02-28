@@ -85,7 +85,7 @@
         </div>
 
         <!-- Submit button -->
-        <button type="button" id="btn" class="btn btn-primary btn-block">Sign in</button>
+        <button type="submit" id="btn" class="btn btn-primary btn-block">Sign in</button>
 		
 	
 		</form>

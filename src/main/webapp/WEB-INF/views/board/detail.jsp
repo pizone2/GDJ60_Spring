@@ -11,7 +11,12 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
+
+
+
 <div class="container-fluid">
+	
+	
 	<div class="row">
 		<h1>${boardName }DetailPage</h1> <!--가끔 빨간줄은 버그 지워다가 다시 쓰면 됨  -->
 		<h3>${dto.title }</h3>
@@ -29,16 +34,16 @@
 		<div>
 			<form action="./update" id="frm">
 				<input type="hidden" name="num" value="${dto.num}">
-		
+		<c:if test="${member.id eq dto.writer}">
 		<button id="update" type="submit" class="btn btn-primary">UPDATE</button>
 		<button id="delete" type="button" class="btn btn=info">DELETE</button>
+		</c:if>	
 			</form>
 		</div>
-		
-		
 	</div>
 
 </div>
+
 
 <script src="../resources/js/boardForm.js"></script>
 <c:import url="../template/common_css.jsp"></c:import>

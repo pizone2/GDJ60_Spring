@@ -20,6 +20,8 @@
 			<h3>Name : ${dto.memberName}</h3>
 			<h3>Phone : ${dto.memberPhone}</h3>
 			<h3>Email : ${dto.email}</h3>
+			<h3>Role : ${dto.roleDTO.roleName}</h3>
+			
 			<a href="./memberUpdate" class="btn btn-info">정보수정</a>
 		</div>
 	</div>

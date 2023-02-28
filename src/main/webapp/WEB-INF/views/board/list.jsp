@@ -16,6 +16,8 @@
 	<div class="row my-5">
 		<h1>${boardName} List</h1>
 	</div>
+	
+
 
 	<div class="row">
 		<table class="table table-hover">
@@ -108,9 +110,33 @@
 	
 	
 	</div>
+	
+	<c:choose>
+	
+	<c:when test="${boardName eq 'notice' && member.roleDTO.roleName == 'ADMIN'}">
+		<div class="row">
+		<a href="./add" class="btn btn-primary">글작성</a>
+		</div>
+	</c:when>
+	
+	<c:when test="${boardName eq 'qna'&& member != null}">
+		<div class="row">
+		<a href="./add" class="btn btn-primary">글작성</a>
+		</div>
+	</c:when>
+	
+	
+	</c:choose>
+	
+	
+	
+	
+	
+	<%-- <c:if test="${member != null}">
 	<div class="row">
 		<a href="./add" class="btn btn-primary">글작성</a>
 	</div>
+	</c:if> --%>
 
 </div>
 

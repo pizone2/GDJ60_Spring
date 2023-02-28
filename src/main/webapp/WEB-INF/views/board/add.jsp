@@ -33,7 +33,9 @@
 				
 				<div class="mb-3">
 				    <label for="writer" class="form-label">작성자</label>
-				    <input type="text" name="writer" class="form-control" id="writer" placeholder="작성자 입력">
+				  <!--    <input type="text" name="writer" class="form-control" id="writer" placeholder="작성자 입력"> -->
+				     <input type="text" name="writer"  readonly value="${member.id}"   class="form-control" id="writer" placeholder="작성자 입력"> 
+				   <!--   <input type="hidden" name="writer" value="${member.id}">-->
 			    </div>
 			    
 				
