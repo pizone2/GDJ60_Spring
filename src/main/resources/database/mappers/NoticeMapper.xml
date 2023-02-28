@@ -39,15 +39,57 @@
   		WHERE R BETWEEN #{startRow} AND #{lastRow}
   	</select>
   	
-  	<select id="getBoardDetail" parameterType="BoardDTO" resultType="NoticeDTO">
-  		SELECT * FROM NOTICE WHERE NUM=#{num}
+  	<select id="getBoardDetail" parameterType="BoardDTO" resultMap="getBoardDetailResult">
+		SELECT N.*, NF.*
+		FROM NOTICE N
+			 LEFT JOIN
+			 NOTICEFILES NF
+			 ON(N.NUM = NF.NUM)
+		WHERE N.NUM=#{num}	
   	</select>
+  	
+  	  <resultMap type="NoticeDTO" id="getBoardDetailResult">
+  		<id column="num" property="num"/>
+  		<result column="title" property="title"/>
+  		<result column="writer" property="writer"/>
+  		<result column="contents" property="contents"/>
+  		<result column="regDate" property="regDate"/>
+  		<result column="hit" property="hit"/>
+  		
+  		<collection property="boardFileDTOs" javaType="List" ofType="BoardFileDTO">
+  			<id column="fileNum" property="fileNum"/>
+  			<result column="fileName" property="fileName"/>
+  			<result column="oriName" property="oriName"/>
+  		</collection>
+  	
+  	</resultMap>
   	
   	
   	<insert id="setBoardAdd" parameterType="BbsDTO">
-  	 	INSERT INTO NOTICE (NUM,TITLE,CONTENTS,WRITER,REGDATE,HIT)
-  	 	VALUES (NOTICE_SEQ.NEXTVAL, #{title},#{contents},#{writer},SYSDATE,0  )
+  		<selectKey keyProperty="num" resultType="Long" order="BEFORE">
+  			SELECT NOTICE_SEQ.NEXTVAL FROM DUAL
+  		</selectKey>
+  		INSERT INTO NOTICE (NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT)
+  		VALUES(#{num}, #{title}, #{contents}, #{writer}, sysdate, 0)
   	</insert>
+  	
+  	 <insert id="setBoardFileAdd" parameterType="BoardFileDTO">
+  		INSERT INTO NOTICEFILES (FILENUM, NUM, FILENAME, ORINAME)
+  		VALUES(NOTICE_SEQ.NEXTVAL ,#{num}, #{fileName}, #{oriName})
+  	</insert>
+  	
+  	  	<delete id="setBoardDelete" parameterType="BbsDTO">
+  		DELETE NOTICE WHERE NUM=#{num}
+  	</delete>
+  	
+  	<select id="getBoardFileList" parameterType="BbsDTO" resultType="BoardFileDTO">
+  		SELECT * FROM NOTICEFILES WHERE NUM=#{num}
+  	</select>
+  	
+  	<select id="getBoardFileDetail" parameterType="BoardFileDTO" resultType="BoardFileDTO">
+  		SELECT * FROM NOTICEFILES WHERE FILENUM=#{fileNum}
+  	</select>
+  
 	  	
 	  	
 	  	

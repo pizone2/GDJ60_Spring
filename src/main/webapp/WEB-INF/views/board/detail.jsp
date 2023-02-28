@@ -19,8 +19,7 @@
 		<p>${dto.contents }</p>
 		
 		<c:forEach items="${dto.boardFileDTOs}" var="fileDTO">
-			<a href="./fileDown?fileNum=${fileDTO.fileNum}">${fileDTO.oriName}
-			</a>
+			<a href="./fileDown?fileNum=${fileDTO.fileNum}">${fileDTO.oriName}</a>
 		</c:forEach>
 		
 		<c:if test="${boardName != 'notice' }">

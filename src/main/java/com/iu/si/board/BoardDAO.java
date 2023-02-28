@@ -21,4 +21,8 @@ public interface BoardDAO extends BbsDAO {
 	//BoardFileList
 	public List<BoardFileDTO> getBoardFileList(BbsDTO bbsDTO) throws Exception;
 	
+	//BoardFileDetail
+	public BoardFileDTO getBoardFileDetail(BoardFileDTO boardFileDTO)throws Exception;
+	
+	
 }
