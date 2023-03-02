@@ -30,9 +30,9 @@
 	<interceptors>
 		<interceptor>
 			<mapping path="/qna/*"/>
-			<mapping path="/member/*"/>
+			 <mapping path="/member/*"/>
 			<exclude-mapping path="/qna/list"/>
-			<exclude-mapping path="/member/memberLoin"/>
+			<exclude-mapping path="/member/memberLogin"/>
 			<exclude-mapping path="/member/memberJoin"/>
 			<exclude-mapping path="/member/memberAgree"/>
 			<beans:ref bean="memberCheckInterceptor"/>
