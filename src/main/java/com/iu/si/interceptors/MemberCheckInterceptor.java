@@ -34,7 +34,6 @@ public class MemberCheckInterceptor extends HandlerInterceptorAdapter{
 		response.sendRedirect("../../../../../member/memberLogin");
 		return false;
 		
-//		response.sendRedirect("../../../../../member/memberLogin");
 	}
 	
 	
