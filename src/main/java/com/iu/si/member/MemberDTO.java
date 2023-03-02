@@ -14,10 +14,10 @@ public class MemberDTO {
 	
 	
 
-	public RoleDTO getRoleDTOs() {
+	public RoleDTO getRoleDTO() {
 		return roleDTO;
 	}
-	public void setRoleDTOs(RoleDTO roleDTO) {
+	public void setRoleDTO(RoleDTO roleDTO) {
 		this.roleDTO = roleDTO;
 	}
 	public void setMemberPhone(String memberPhone) {

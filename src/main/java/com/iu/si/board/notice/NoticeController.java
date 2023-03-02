@@ -18,6 +18,7 @@ import com.iu.si.board.BbsDTO;
 import com.iu.si.board.BbsService;
 import com.iu.si.board.BoardDTO;
 import com.iu.si.board.BoardFileDTO;
+import com.iu.si.board.qna.QnaService;
 import com.iu.si.util.Pager;
 
 @Controller
@@ -103,6 +104,15 @@ public class NoticeController {
 		
 		mv.addObject("boardFile", boardFileDTO);
 		mv.setViewName("fileDownView");
+		return mv;
+	}
+	@GetMapping("update")
+	public ModelAndView setBoardUpdate(BoardDTO boardDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boardDTO = noticeService.getBoardDetail(boardDTO);
+		
+		mv.addObject("dto", boardDTO);
+		mv.setViewName("board/update");
 		return mv;
 	}
 	

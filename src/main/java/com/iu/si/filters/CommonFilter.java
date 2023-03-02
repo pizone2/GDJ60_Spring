@@ -12,8 +12,9 @@ import javax.servlet.ServletResponse;
  * Servlet Filter implementation class CommonFilter
  */
 public class CommonFilter implements Filter {
+	
+	private String name;
 
-	private  String name;
     /**
      * Default constructor. 
      */
@@ -34,11 +35,12 @@ public class CommonFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
-		System.out.println("CommonFilter IN");
+
+		System.out.println("CommonFilter In");
 		System.out.println("Name : "+name);
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
-		System.out.println("CommonFilter OUT");
+		System.out.println("CommonFilter Out");
 	}
 
 	/**
