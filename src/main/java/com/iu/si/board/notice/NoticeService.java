@@ -27,29 +27,24 @@ public class NoticeService implements BoardService {
 
 	@Override
 	public List<BbsDTO> getBoardList(Pager pager) throws Exception {
+		
 		pager.makeRow();
 		
 		pager.makeNum(noticeDAO.getTotalCount(pager));
 		
 		return noticeDAO.getBoardList(pager);
 	}
-
-
-	
-
 	@Override
 	public int setBoardUpdate(BbsDTO bbsDTO) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-
 	@Override
 	public BoardDTO getBoardDetail(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
 		return noticeDAO.getBoardDetail(boardDTO);
 	}
-
 	@Override
 	public int setBoardAdd(BbsDTO bbsDTO, MultipartFile[] multipartFiles, HttpSession session) throws Exception {
 		int result = noticeDAO.setBoardAdd(bbsDTO);

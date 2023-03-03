@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.si.board.BbsDAO;
 import com.iu.si.board.BbsDTO;
@@ -30,12 +31,16 @@ public class BankBookCommentDAO implements BbsDAO{
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(NAMESPACE+"getBoardList", pager);
 	}
+	
 
+
+	
 	@Override
-	public int setBoardAdd(BbsDTO bbsDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+	public int setBoardAdd(BbsDTO bbsDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"setBoardAdd", bbsDTO);
 	}
+
+
 
 	@Override
 	public int setBoardUpdate(BbsDTO bbsDTO) throws Exception {

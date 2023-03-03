@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,6 +16,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class MemberController {
 	//특정 uri로 요청을 보내면 Controller에서 어떠한 방식으로 처리할지 정의를 하는데,
 	//이떄 들어온 요청을 특정 메서드와 매핑하기 위해 사용하는것이 @RequestMapping임.
+	
+	@PostMapping("memberIdCheck")
+	public ModelAndView getMemberIdCheck(MemberDTO memberDTO)throws Exception{
+		boolean check = memberService.getMemberIdCheck(memberDTO);
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("result", check);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
 	
 	@RequestMapping(value = "memberAgree", method = RequestMethod.GET)
 	public void setMemberAgree()throws Exception{
