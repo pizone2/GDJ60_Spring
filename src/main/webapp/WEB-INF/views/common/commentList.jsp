@@ -14,10 +14,10 @@
 		<td>${dto.regDate}</td>
 		 <td>
 			<c:if test="${member.id eq dto.writer}">
-				<button class="btn btn-danger del">DELETE</button>		
+				<button class="btn btn-danger del" data-comment-num="${dto.num}">DELETE</button>		
 			</c:if> 
 			<c:if test="${member.id eq dto.writer}">							
-					<button class="btn btn-info update">UPDATE</button>	
+				<button class="btn btn-info update" data-bs-toggle="modal" data-bs-target="#contentsModal" data-comment-num="${dto.num}">UPDATE</button>
 			</c:if>
 		 </td>	
 </c:forEach>
