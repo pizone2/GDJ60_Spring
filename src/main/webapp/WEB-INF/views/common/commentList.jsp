@@ -7,7 +7,7 @@
 <c:forEach items="${list }" var="dto">
 	<tr>
 		<td id="contents${dto.num}">
-			<textarea name="" id="" cols="" rows="" readonly>${dto.contents}</textarea> 
+			${dto.contents}
 		
 		</td>
 		<td>${dto.writer}</td>
@@ -66,9 +66,4 @@
 
 	
 			
-		  <textarea class="form-control" rows="3" id="replyContents"></textarea>
-	 
-
-		  <button type="button" class="btn btn-primary" id="replyUpdate">댓글수정</button>
-	
-	
+		
