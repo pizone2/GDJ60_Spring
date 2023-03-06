@@ -24,30 +24,27 @@
   
   
   	<select id="getProductList" parameterType="Pager" resultType="ProductDTO" statementType="PREPARED">
-  		SELECT * FROM
-	  		(
-	  			SELECT ROWNUM R,B * FROM
-	  				(
-		  			    SELECT * 
-		  			    FROM PRODUCT
-						WHERE 
-						
-						<choose>
-							<when test="kind == 'contents' ">
-								PRODUCTDETAIL
-							</when>
-							<otherwise>
-								PRODUCTNAME
-							</otherwise>
-						</choose>
-						
-						 LIKE  '%' || #{search} || '%'
-						
-						ORDER BY PRODUCTNUM DESC
-	  				)B
-	  		)
-  		WHERE  R BETWEEN  #{startRow} AND #{lastRow} 
-  	</select>
+  SELECT * FROM
+    (
+      SELECT ROWNUM R, B.* FROM
+        (
+          SELECT * 
+          FROM PRODUCT
+          WHERE 
+          <choose>
+            <when test="kind == 'contents' ">
+              PRODUCTDETAIL LIKE '%' || #{search} || '%'
+            </when>
+            <otherwise>
+              PRODUCTNAME LIKE '%' || #{search} || '%'
+            </otherwise>
+          </choose>
+          ORDER BY PRODUCTNUM DESC
+        ) B
+    )
+  WHERE R BETWEEN #{startRow} AND #{lastRow} 
+</select>
+
   	<!--사용하려는 DAO의 이름과 동일하게  -->
   	<!--없는거 미리 만들면 오류 -->
   	<select id="getProductDetail" parameterType="ProductDTO" resultType="ProductDTO">
