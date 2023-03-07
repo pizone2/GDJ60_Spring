@@ -39,8 +39,7 @@ public class BankBookCommentController {
 	public ModelAndView setBoardAdd(BankBookCommentDTO bankBookCommentDTO,HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
-//		bankBookCommentDTO.setWriter(null);
-		bankBookCommentDTO.setWriter("kimjinseo1");
+		bankBookCommentDTO.setWriter(memberDTO.getId());
 		
 		int result = bankBookCommentService. setBoardAdd(bankBookCommentDTO, null, session);
 		
