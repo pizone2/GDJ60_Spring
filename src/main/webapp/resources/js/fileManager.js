@@ -6,6 +6,9 @@ let count = 0;
 let max = 1;
 let param = 'pic';
 let idx = 0;
+function setCount(c){
+    count = c;
+}
 
 function setParam(p){
     param=p;
@@ -15,6 +18,7 @@ function setMax(m){
     max=m;
 }
 
+
 fileList.addEventListener("click",function(e) {
     if(e.target.classList.contains('dels')){
       e.target.parentNode.remove();
@@ -23,6 +27,58 @@ fileList.addEventListener("click",function(e) {
         count--;
     }
 });
+
+$(".deleteCheck").click(function(){
+   if($(this).prop('checked')){
+        let result = confirm('파일 영구삭제 됩니다.')
+
+        if(result){
+            count--;
+        }else {
+            $(this).prop("checked",false);
+        }
+
+
+        
+   }else {
+        if(count==5){
+            console.log("idx:"+idx)
+            console.log("하나는 지워야한다아아")
+            $("#f"+(idx-1)).remove();
+       
+        return;
+     }
+     count++;
+   }
+})
+
+// $("#fileList").on("click",".dels",function(){
+//     // let id = $(this).attr('data-dels-id'); 
+//     // $("#"+id).remove();
+//     $(this).parent().remove;
+//     count--;
+// })
+
+
+// $("#add").click(()=>{
+    
+    // if(count < max) {
+    //   fileList.prepend(d);
+    //   count++
+    // }else{
+    //      alert("이미지는 "+max+"개만 첨부가능합니다.");
+    //  }
+
+    // let child = '<div class="input=group mb-3" id="f'+idx+'">';
+    //     child = child+'<input type="file" class="form-control" name="'+param+'">';
+    //     child = child+'<button type = "button" class="btn btn-outline-danger dels"data-dels-id="f'+idx+'">X<button>';
+    //     child = child+ '</div>'  
+
+    // $("#fileList").append(child);
+
+    //     idx++;
+    // });
+
 
 add.addEventListener('click',function() {
     
@@ -106,3 +162,4 @@ add.addEventListener('click',function() {
     //     parentNode.remove();
     // })
 })
+

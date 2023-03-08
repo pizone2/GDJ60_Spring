@@ -70,7 +70,7 @@
 <script src="../resources/js/fileManager.js"></script>
 <script>
 	setMax(5);
-	setParam('files');
+	setParam('addFiles');
 	$("#contents").summernote();
 </script>
 <c:import url="../template/common_css.jsp"></c:import>
