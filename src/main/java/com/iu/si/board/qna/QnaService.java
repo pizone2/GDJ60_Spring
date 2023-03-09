@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.si.board.BbsDAO;
 import com.iu.si.board.BbsDTO;
@@ -168,6 +169,11 @@ public class QnaService implements BoardService{
 	public BoardFileDTO getBoardFileDetail(BoardFileDTO boardFileDTO) throws Exception {
 		// TODO Auto-generated method stub
 		return qnaDAO.getBoardFileDetail(boardFileDTO);
+	}
+	
+	public int setboardFileDelete(Long fileNum)throws Exception{
+		//HDD 에 파일 삭제
+		return qnaDAO.setBoardFileDelete(fileNum);
 	}
 
 

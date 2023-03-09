@@ -29,27 +29,62 @@ fileList.addEventListener("click",function(e) {
 });
 
 $(".deleteCheck").click(function(){
-   if($(this).prop('checked')){
-        let result = confirm('파일 영구삭제 됩니다.')
+    let result = confirm('파일 영구삭제 됩니다.')
+    let ch = $(this);
+    if(result){
+        let fileNum = $(this).val();
+        $.ajax({
+            type:'POST',
+            url:'./boardFileDelete',
+            data:{
+                fileNum:fileNum
+            },
+            success:function(response){
+                if(response.trim() > 0){
+                    alert("삭제 되었습니다.")
+                    //this : ajax객체 자기 자신
+                    ch.parent().parent().remove();
+                    console.log($(ch))
+                    count--;
+                }else{
+                    alert("삭제 실패")
+                }
+            },
+            error:function(){
 
-        if(result){
-            count--;
-        }else {
-            $(this).prop("checked",false);
-        }
+            }
+        })
+        //ajax DB에서 삭제
+        //fetch
+    //     fetch("URL?p=1", {
+    //         method:'GET'
+    //     }).then((response)=>response.text())
+    //         .then((res)=>{
+            
+    // })
+    // $.get("URL?p=1", function(response){
+
+    // })
+
+    //fetch
+    // fetch("URL",{
+    //     method:'POST',
+    //     headers:{
+    //         'contents-Type:'
+    //     },
+    //     body:"p=1"
+    // }).then((response)=>response.text())
+    //         .then((res)=>{
+            
+    //          })
+    //$.post("URL",{p:1},function(res){})
+
+    
 
 
-        
-   }else {
-        if(count==5){
-            console.log("idx:"+idx)
-            console.log("하나는 지워야한다아아")
-            $("#f"+(idx-1)).remove();
-       
-        return;
-     }
-     count++;
-   }
+    }else{
+        $(this).prop('checked',false);
+    }
 })
 
 // $("#fileList").on("click",".dels",function(){
