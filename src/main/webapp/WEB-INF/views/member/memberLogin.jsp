@@ -18,7 +18,7 @@
 		<form action="./memberLogin" method="post">
 		<!--id  -->
 		 <div class="form-outline mb-4">
-          <input type="text" id="id" class="form-control" name="id">
+          <input type="text" value="${cookie.rememberID.value}" class="form-control" name="id">
           <label class="form-label" for="form1Example1" style="margin-left: 0px;">ID</label>
         <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 88px;"></div><div class="form-notch-trailing"></div></div></div>
 		<!--pw  -->
@@ -32,7 +32,7 @@
           <div class="col d-flex justify-content-center">
             <!-- Checkbox -->
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked="">
+              <input class="form-check-input" name="remember" type="checkbox" value="remember" id="form1Example3" checked="">
               <label class="form-check-label" for="form1Example3"> Remember me </label>
             </div>
           </div>
